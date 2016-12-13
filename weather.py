@@ -1,12 +1,7 @@
 import json
 import urllib
-# import urllib.request
 from bs4 import BeautifulSoup
-# import requests
 from datetime import date
-
-#build api url
-# t = str(date.today())
 
 def hours(s):
     return [x.string+":00" for x in s.find('tr', class_="time").findAll("span", class_="hour")]

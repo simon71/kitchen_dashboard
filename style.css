@@ -1,16 +1,17 @@
 body {
-	background-color: white;
-	font-family: Verdana, "Courier New", "Lucida Console";
+	background-color: Black;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 	overflow: hidden;
-	width: auto;
-	height: auto;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
 	padding: 0px;
+
 }
 
 #main{
-	background-color: darkgrey;
-	width: auto;
-	height: auto;
+	background-color: #0C090A;
 	margin-top: 0px;
 	margin-left: auto;
 	margin-right: auto;
@@ -19,43 +20,40 @@ body {
 }
 
 #title{
-	width: 100%;
-	height: 10%;
-	background-color: black;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 5%;
+	max-height: 5%;
+	background-color: #0C090A;
 	color: white;
-	padding: 0px;
+	padding: 20px, 0px, 20px, 0px;
+	align-items: center;
 }
 
 .title_text_main{
-	margin-top: 0px;
-	font: Calibri, "Courier New", "Lucinda Console";
 	font-weight: bold;
-	font-size: 40px;
-	text-align: center;
-	position: relative;
-}
+	font-size: 20px;
+	margin: 20px,10px,20px,10px
+	}
 
 .title_text_small{
-	font: Calibri, "Courier New", "Lucinda Console";
 	font-weight: bold;
 	font-size: 20px;
 	text-align: center;
 }
 
 .time{
-	font: Verdana, "Courier New", "Lucida Console";
-	font-size: 100px;
+	font-size: 60px;
 	text-align: center;
 	font-weight: bold;
-	color: black;
+	color: #2C3539; /*gunmetal*/
 }
 
 .day{
-	font: Verdana, "Courier New", "Lucida Console";
-	font-size: 40px;
+	font-size: 20px;
 	text-align: center;
 	font-weight: bold;
-	color: black;
+	color: #2C3539; /*gunmetal*/
 }
 
 #world{
