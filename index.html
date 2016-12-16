@@ -11,45 +11,51 @@
 <Link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body class="body">
-<div id="main" class="main">
-	<div id="title" class="title"><p class="title_text_main">Home Dashboard</p></div>
-	<div id="world">world</div>
-	<div id="time">
-		<script type="text/javascript">
-			tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-			tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-
-			function GetClock(){
-			var d=new Date();
-			var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-			if(nyear<1000) nyear+=1900;
-			var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-
-			if(nhour==0){ap=" AM";nhour=12;}
-			else if(nhour<12){ap=" AM";}
-			else if(nhour==12){ap=" PM";}
-			else if(nhour>12){ap=" PM";nhour-=12;}
-
-			if(nmin<=9) nmin="0"+nmin;
-			if(nsec<=9) nsec="0"+nsec;
-
-			document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+ap+"";
-			document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+""
-			}
-
-			window.onload=function(){
-			GetClock();
-			setInterval(GetClock,1000);
-			}
-			</script>
-			<div id="clock" class="time"></div>
-			<div id="date" class="day"></div>
+	<div id="title" class="main">
+		<div id="title" class="title">
+			<p class="title_text_main">Home Dashboard</p>
+		</div>
 	</div>
-	<div id="weather">
-			<script type="text/javascript"> moWWidgetParams="moAllowUserLocation:false~moBackgroundColour:black~moColourScheme:black~moDays:7~moDomain:www.metoffice.gov.uk~moFSSI:352341~moListStyle:vertical~moMapDisplay:none~moShowFeelsLike:true~moShowUV:true~moShowWind:true~moSpecificHeight:460~moSpecificWidth:310~moSpeedUnits:M~moStartupLanguage:en~moTemperatureUnits:C~moTextColour:white~moGridParams:weather,temperature,wind,gust,feelslike~"; </script>
-			<script type="text/javascript" src="http://www.metoffice.gov.uk/public/pws/components/yoursite/loader.js"> </script>
+	<div id="body" class="main">
+		<div id="world" class="world">
+			world
+		</div>
+		<div id="time" class="time_cont">
+			<script type="text/javascript">
+				tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+				tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+				function GetClock(){
+				var d=new Date();
+				var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+				if(nyear<1000) nyear+=1900;
+				var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+				if(nhour==0){ap=" AM";nhour=12;}
+				else if(nhour<12){ap=" AM";}
+				else if(nhour==12){ap=" PM";}
+				else if(nhour>12){ap=" PM";nhour-=12;}
+
+				if(nmin<=9) nmin="0"+nmin;
+				if(nsec<=9) nsec="0"+nsec;
+
+				document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+ap+"";
+				document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+""
+				}
+
+				window.onload=function(){
+				GetClock();
+				setInterval(GetClock,1000);
+				}
+				</script>
+				<div id="clock" class="time"></div>
+				<div id="date" class="day"></div>
+		</div>
+		<div id="weather" class="weather">
+			<script type="text/javascript"> moWWidgetParams="moAllowUserLocation:false~moBackgroundColour:black~moColourScheme:black~moDays:7~moDomain:www.metoffice.gov.uk~moFSSI:352341~moListStyle:vertical~moMapDisplay:none~moShowFeelsLike:true~moShowUV:true~moShowWind:true~moSpecificHeight:460~moSpecificWidth:310~moSpeedUnits:M~moStartupLanguage:en~moTemperatureUnits:C~moTextColour:white~moGridParams:weather,temperature,wind,gust,feelslike~";</script><script type="text/javascript" src="http://www.metoffice.gov.uk/public/pws/components/yoursite/loader.js"></script>
+		</div>
+
 	</div>
-	</>
 </body>
 </html>
 
