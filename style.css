@@ -1,4 +1,4 @@
-body {
+.body {
 	margin: 0;
 	padding: 0;
 	background: black;
@@ -7,46 +7,52 @@ body {
 }
 
 .main{
+	float: right;
 	background: black;
 	max-width: 1366px;
 	max-height: 768px;
 	height: 96%;
 	width: 96%;
-	margin: auto;
 }
 
 #title{
-	float: none;
-	width: 1366px;
+	float: left;
+	width: 400px;
 	height:60px;
 	background-color: #0C090A;
-	margin-bottom: 20px;
 }
 
 	.title_text_main{
 		font-weight: bold;
 		font-size: 40px;
 		color: grey;
-		overflow: hidden;
+		margin: 0px;
 		}
 
-.title_text_small{
-	font-weight: bold;
-	font-size: 20px;
-	text-align: center;
-}
+	.title_text_small{
+		font-weight: bold;
+		font-size: 20px;
+		text-align: center;
+	}
 
 /* ------- content -----------*/
 
 .time_cont{
+	align-self: auto;
+	margin-right: 10px;
+	margin-top: 10px;
 	float: right;
-	background-color: #E42217;
-	padding: 5px;
+	max-width: 30%;
+	width: 30%;
+	/*background-color: black #E42217*/;
+	border-style: solid;
 	border-radius: 5px;
+	border-width: 2px;
+	border-color: #E42217;
 	margin-bottom: 20px;
 	font-family: "Courier New", Courier, monospace;
 	padding: 20px;
-	opacity: 0.75;
+	opacity: .5;
 
 }
 
@@ -71,6 +77,13 @@ body {
 	padding-right: 30px;
 }
 
+.weather_data{
+	padding: 10px;
+	border-spacing: 10px;
+}
+
 .world{
 	float: left;
+	max-width: 60%;
+	width: 60%;
 }

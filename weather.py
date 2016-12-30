@@ -1,5 +1,5 @@
 import json
-import urllib
+import urllib.request
 from bs4 import BeautifulSoup
 from datetime import date
 
@@ -67,7 +67,7 @@ def night_img(condition):
         }.get(condition, None)
 
 url = "http://www.bbc.co.uk/weather/en/2644037/daily/" + date.today().strftime("%Y-%m-%d")
-page = urllib.urlopen(url)
+page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page, "html5lib")
 #table = soup.find("table", {'class':'weather moving-window three-hourly-0 one-hourly-21'})
 
@@ -81,7 +81,6 @@ day_hrs = ["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:0
 # dictionary where the key is the hour, and the value is the weather condition
 # at that time.
 weather_cond = dict(zip(hrs, conditions))
-
 # dictionary where the key is the hour, and the value is the name of the image
 # representng the weather condition
 weather_img = {}
@@ -91,7 +90,30 @@ for h in range(len(hrs)):
     else:
         img = night_img
 
-    weather_img[hrs[h]] = img(conditions[h])
+    weather_img = img(conditions[h])
 
-print(json.dumps(weather_cond, indent=4))
-print(json.dumps(weather_img, indent=4))
+hours = {}
+for i in range(len(hrs)):
+    hours[i] = hrs[i]
+
+cond = {}
+for i in range(len(hrs)):
+    cond[i] = conditions[i]
+
+img = {}
+for i in range(len(hrs)):
+    img[i] = weather_img
+
+weather_data = {}
+for i in (hours):
+    weather_data[i] = {'hour' : hours[i], 'conditions' : cond[i], 'image' : img[i]}
+
+#writes the json data to file
+with open('weather_data.json', 'w') as outfile:
+    json.dump(weather_data, outfile, indent=4, sort_keys=True)
+
+#returns the sun rise time from the BBC weather website
+sun_rise = soup.find('div', {'class':'sunrise-sunset'}).find('span', {'class':'sunrise'}).text.strip()
+
+#returns the sun set time from the BBC weather website
+sun_set = soup.find('div', {'class':'sunrise-sunset'}).find('span', {'class':'sunset'}).text.strip()

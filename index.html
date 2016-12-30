@@ -9,16 +9,14 @@
 <meta http-equiv="cache" content="no-cache">
 <meta http-equiv="refresh" content="3600">
 <Link rel="stylesheet" type="text/css" href="style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 </head>
 <body class="body">
-	<div id="title" class="main">
-		<div id="title" class="title">
-			<p class="title_text_main">Home Dashboard</p>
-		</div>
-	</div>
 	<div id="body" class="main">
 		<div id="world" class="world">
-			world
+			<h1>Main</h1>
+			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=harveysimon73%40gmail.com&amp;color=%23182C57&amp;ctz=Europe%2FLondon" style="border-width:0" width="800" height="400" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div id="time" class="time_cont">
 			<script type="text/javascript">
@@ -52,11 +50,31 @@
 				<div id="date" class="day"></div>
 		</div>
 		<div id="weather" class="weather">
-			<script type="text/javascript"> moWWidgetParams="moAllowUserLocation:false~moBackgroundColour:black~moColourScheme:black~moDays:7~moDomain:www.metoffice.gov.uk~moFSSI:352341~moListStyle:vertical~moMapDisplay:none~moShowFeelsLike:true~moShowUV:true~moShowWind:true~moSpecificHeight:460~moSpecificWidth:310~moSpeedUnits:M~moStartupLanguage:en~moTemperatureUnits:C~moTextColour:white~moGridParams:weather,temperature,wind,gust,feelslike~";</script><script type="text/javascript" src="http://www.metoffice.gov.uk/public/pws/components/yoursite/loader.js"></script>
+				<table class="weather_data">
+					<tr>
+						<td>Hour</td>
+					</tr>
+					<tr>
+						<td>Conditions</td>
+					</tr>
+					<tr>
+						<td>Images</td>
+					</tr>
+				</table>
 		</div>
-
+		<script>
+		$.getJSON("weather_data.json", function(data){
+			var items = [];
+			$.each(data, function(key,val){
+				items.push("<tr>");
+				items.push("<tc><td id=''"+key+"''>"+val.hour+"</td></tc>");
+				items.push("</tr>");
+				items.push("<tc><td id=''"+key+"''>"+val.conditions+"</td></tc>");
+				// items.push("<td id=''"+key+"''> <img src='Images\\"+val.image+"'></td>");
+				});
+			$("<tbody/>", {html: items.join("")}).appendTo("table");
+		});
+		</script>
 	</div>
 </body>
 </html>
-
-<!--  -->
