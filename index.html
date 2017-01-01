@@ -49,32 +49,25 @@
 				<div id="clock" class="time"></div>
 				<div id="date" class="day"></div>
 		</div>
-		<div id="weather" class="weather">
+		<div id="weather_main" class="weather">
 				<table class="weather_data">
-					<tr>
-						<td>Hour</td>
-					</tr>
-					<tr>
-						<td>Conditions</td>
-					</tr>
-					<tr>
-						<td>Images</td>
-					</tr>
+					<thead>
+						<tc>
+							<th></th>
+						</tc>
+					</thead>
 				</table>
 		</div>
-		<script>
-		$.getJSON("weather_data.json", function(data){
-			var items = [];
-			$.each(data, function(key,val){
-				items.push("<tr>");
-				items.push("<tc><td id=''"+key+"''>"+val.hour+"</td></tc>");
-				items.push("</tr>");
-				items.push("<tc><td id=''"+key+"''>"+val.conditions+"</td></tc>");
-				// items.push("<td id=''"+key+"''> <img src='Images\\"+val.image+"'></td>");
-				});
-			$("<tbody/>", {html: items.join("")}).appendTo("table");
-		});
-		</script>
 	</div>
+	<script>
+	$.getJSON("weather_data.json", function(data){
+		$.each(data, function(key,val){
+				$("tr").append("<td>"+val.hour+"</br>"+val.conditions+"</br><img src='Images\\"+val.image+"'></td>");
+				//$("tr").append("<td id=''"+key+"''>"+val.conditions+"</td>");
+			// items.push("<td id=''"+key+"''> <img src='Images\\"+val.image+"'></td>");
+		});
+		//$("<tbody/>", {html: items.join("")}).appendTo("table");
+	});
+	</script>
 </body>
 </html>
