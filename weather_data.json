@@ -16,32 +16,12 @@
         "night_partly_cloudy.png"
     ],
     "04:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png"
+        "Light Cloud",
+        "night_partly_cloudy.png"
     ],
     "05:00": [
         "Light Cloud",
         "light_cloud.png"
-    ],
-    "11:00": [
-        "Sunny",
-        "sun.png"
-    ],
-    "12:00": [
-        "Sunny",
-        "sun.png"
-    ],
-    "13:00": [
-        "Sunny",
-        "sun.png"
-    ],
-    "14:00": [
-        "Sunny",
-        "sun.png"
-    ],
-    "15:00": [
-        "Sunny",
-        "sun.png"
     ],
     "16:00": [
         "Sunny Intervals",
