@@ -1,77 +1,78 @@
 {
-    "0": {
-        "conditions": "Light Cloud",
-        "hour": "15:00",
-        "image": "light_cloud.png"
-    },
-    "1": {
-        "conditions": "Light Cloud",
-        "hour": "16:00",
-        "image": "light_cloud.png"
-    },
-    "2": {
-        "conditions": "Light Cloud",
-        "hour": "17:00",
-        "image": "light_cloud.png"
-    },
-    "3": {
-        "conditions": "Thick Cloud",
-        "hour": "18:00",
-        "image": "light_cloud.png"
-    },
-    "4": {
-        "conditions": "Light Cloud",
-        "hour": "19:00",
-        "image": "light_cloud.png"
-    },
-    "5": {
-        "conditions": "Thick Cloud",
-        "hour": "20:00",
-        "image": "light_cloud.png"
-    },
-    "6": {
-        "conditions": "Thick Cloud",
-        "hour": "21:00",
-        "image": "light_cloud.png"
-    },
-    "7": {
-        "conditions": "Thick Cloud",
-        "hour": "22:00",
-        "image": "light_cloud.png"
-    },
-    "8": {
-        "conditions": "Partly Cloudy",
-        "hour": "23:00",
-        "image": "light_cloud.png"
-    },
-    "9": {
-        "conditions": "Light Cloud",
-        "hour": "00:00",
-        "image": "light_cloud.png"
-    },
-    "10": {
-        "conditions": "Light Cloud",
-        "hour": "01:00",
-        "image": "light_cloud.png"
-    },
-    "11": {
-        "conditions": "Light Cloud",
-        "hour": "02:00",
-        "image": "light_cloud.png"
-    },
-    "12": {
-        "conditions": "Partly Cloudy",
-        "hour": "03:00",
-        "image": "light_cloud.png"
-    },
-    "13": {
-        "conditions": "Partly Cloudy",
-        "hour": "04:00",
-        "image": "light_cloud.png"
-    },
-    "14": {
-        "conditions": "Light Cloud",
-        "hour": "05:00",
-        "image": "light_cloud.png"
-    }
+    "00:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "01:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "02:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "03:00": [
+        "Light Cloud",
+        "night_partly_cloudy.png"
+    ],
+    "04:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "05:00": [
+        "Light Cloud",
+        "light_cloud.png"
+    ],
+    "11:00": [
+        "Sunny",
+        "sun.png"
+    ],
+    "12:00": [
+        "Sunny",
+        "sun.png"
+    ],
+    "13:00": [
+        "Sunny",
+        "sun.png"
+    ],
+    "14:00": [
+        "Sunny",
+        "sun.png"
+    ],
+    "15:00": [
+        "Sunny",
+        "sun.png"
+    ],
+    "16:00": [
+        "Sunny Intervals",
+        "sunny_intervals.png"
+    ],
+    "17:00": [
+        "Light Cloud",
+        "night_partly_cloudy.png"
+    ],
+    "18:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "19:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "20:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "21:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "22:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ],
+    "23:00": [
+        "Thick Cloud",
+        "night_thick_cloudy.png"
+    ]
 }

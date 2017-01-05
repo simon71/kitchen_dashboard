@@ -2,6 +2,7 @@ import json
 import urllib.request
 from bs4 import BeautifulSoup
 from datetime import date
+import os
 
 def hours(s):
     return [x.string+":00" for x in s.find('tr', class_="time").findAll("span", class_="hour")]
@@ -47,6 +48,7 @@ def night_img(condition):
 
             'Partly Cloudy':'night_partly_cloudy.png',
             'Light Cloud':'night_partly_cloudy.png',
+            'Thick Cloud':'night_thick_cloudy.png',
             'Mist':'mist.png',
             'Fog':'fog.png',
 
@@ -72,41 +74,27 @@ soup = BeautifulSoup(page, "html5lib")
 #table = soup.find("table", {'class':'weather moving-window three-hourly-0 one-hourly-21'})
 
 hrs = hours(soup)
-conditions = conditions(soup)
-if len(hrs) != len(conditions):
+condition = conditions(soup)
+if len(hrs) != len(condition):
     fatal('Unable to display weather at this moment in time. Please check back later')
 
 day_hrs = ["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00"]
 
 # dictionary where the key is the hour, and the value is the weather condition
 # at that time.
-weather_cond = dict(zip(hrs, conditions))
+weather_cond = dict(zip(hrs, condition))
 # dictionary where the key is the hour, and the value is the name of the image
 # representng the weather condition
 weather_img = {}
-for h in range(len(hrs)):
-    if hrs[h] in day_hrs:
-        img = day_img
+for h in weather_cond:
+    if h in day_hrs:
+        weather_img[h] = (day_img(weather_cond[h]))
     else:
-        img = night_img
+        weather_img[h] = (night_img(weather_cond[h]))
 
-    weather_img = img(conditions[h])
-
-hours = {}
-for i in range(len(hrs)):
-    hours[i] = hrs[i]
-
-cond = {}
-for i in range(len(hrs)):
-    cond[i] = conditions[i]
-
-img = {}
-for i in range(len(hrs)):
-    img[i] = weather_img
-
-weather_data = {}
-for i in (hours):
-    weather_data[i] = {'hour' : hours[i], 'conditions' : cond[i], 'image' : img[i]}
+weather_data= {}
+for h in hrs:
+    weather_data[h] = weather_cond[h], weather_img[h]
 
 #writes the json data to file
 with open('weather_data.json', 'w') as outfile:

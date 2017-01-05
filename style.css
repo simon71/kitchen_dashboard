@@ -4,15 +4,17 @@
 	background: black;
 	color: white;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+	border-width: medium;
+	border-color: white;
 }
 
 .main{
 	float: right;
 	background: black;
-	max-width: 1366px;
-	max-height: 768px;
-	height: 96%;
-	width: 96%;
+	max-width: 2880px;
+	max-height: 4800px;
+	height: 4800px;
+	width: 2880px;
 }
 
 #title{
@@ -38,33 +40,23 @@
 /* ------- content -----------*/
 
 .time_cont{
-	align-self: auto;
-	margin-right: 10px;
+	margin-right: 15px;
 	margin-top: 10px;
 	float: right;
-	max-width: 30%;
-	width: 30%;
-	/*background-color: black #E42217*/;
-	border-style: solid;
-	border-radius: 5px;
-	border-width: 2px;
-	border-color: #E42217;
 	margin-bottom: 20px;
 	font-family: "Courier New", Courier, monospace;
-	padding: 20px;
-	opacity: .5;
 
 }
 
 	.time{
-		font-size: 60px;
+		font-size: 30px;
 		text-align: center;
 		font-weight: bold;
 		color: #E5E4E2;/*platinum*/
 	}
 
 	.day{
-		font-size: 20px;
+		font-size: 10px;
 		text-align: center;
 		font-weight: bold;
 		color: #E5E4E2;/*platinum*/
@@ -76,15 +68,17 @@
 	padding-right: 30px;
 }
 img{
-	width: 50px;
-	height: 50px;
-	filter: invert(100%);
+	width: 30px;
+	height: 30px;
 }
 
-.weather_data{
-	padding: 10px;
-	border-spacing: 10px;
+table{
+	/*padding: 10px;
+	border-spacing: 10px;*/
+	max-column-width: 30px;
 	text-align: center;
+	word-wrap: normal;;
+	font-size: 10px;
 }
 
 .world{
