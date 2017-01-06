@@ -2,6 +2,7 @@ import json
 import urllib.request
 from bs4 import BeautifulSoup
 from datetime import date
+import time
 import os
 
 def hours(s):
@@ -81,24 +82,36 @@ if len(hrs) != len(condition):
 
 day_hrs = ["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00"]
 
+presentHour = time.strftime('%H')+':00'
+
 # dictionary where the key is the hour, and the value is the weather condition
 # at that time.
 weather_cond = dict(zip(hrs, condition))
 # dictionary where the key is the hour, and the value is the name of the image
 # representng the weather condition
 
+#########################
+#temperature
+#########################
 temp = [x.contents[0] for x in soup.find('tr', {'class':'temperature'}).findAll('span', {'class': 'units-value temperature-value temperature-value-unit-c'})]
-
 #dict of hour and temp
 weather_temp = dict(zip(hrs, temp))
 
-
+#########################
+#humidity
+#########################
 humidity = [x.string.strip() for x in soup.find('tr', {'class': 'humidity'}).findAll('td', {'class':'value hours-1'})]
 #dict hours and humidity
 weather_humidity = dict(zip(hrs, humidity))
 
+###########################
+#wind speed
+###########################
+windS = [x.contents[0].strip() for x in soup.find('tr', {'class':'windspeed'}).findAll('span', {'class':'units-value windspeed-value windspeed-value-unit-mph'})]
+weather_wind_speed = dict(zip(hrs, windS))
 
-print(soup)
+windD = [x.string for x in soup.find('tr', {'class':'wind-direction'}).findAll('abbr')]
+weather_wind_direction = dict(zip(hrs, windD))
 
 weather_img = {}
 for h in weather_cond:
@@ -107,13 +120,27 @@ for h in weather_cond:
     else:
         weather_img[h] = (night_img(weather_cond[h]))
 
-weather_data= {}
-for h in hrs:
-    weather_data[h] = weather_cond[h], weather_img[h], weather_temp[h], weather_humidity[h]
+for i in hrs:
+    if i > presentHour:
+        weather_data_post= {}
+        weather_data_post[i] = weather_cond[i], weather_img[i], weather_temp[i], weather_humidity[i], weather_wind_speed[i], weather_wind_direction[i]
+
+for i in hrs:
+    if i < presentHour:
+        weather_data_pre= {}
+        weather_data_pre[i] = weather_cond[i], weather_img[i], weather_temp[i], weather_humidity[i], weather_wind_speed[i], weather_wind_direction[i]
+
+
+
+
 
 #writes the json data to file
-with open('weather_data.json', 'w') as outfile:
-    json.dump(weather_data, outfile, indent=4, sort_keys=True)
+with open('weather_data_pre.json', 'w') as outfile:
+    json.dump(weather_data_pre, outfile, indent=4, sort_keys=True)
+
+with open('weather_data_post.json', 'w') as outfile:
+    json.dump(weather_data_post, outfile, indent=4, sort_keys=True)
+
 
 #returns the sun rise time from the BBC weather website
 sun_rise = soup.find('div', {'class':'sunrise-sunset'}).find('span', {'class':'sunrise'}).text.strip()

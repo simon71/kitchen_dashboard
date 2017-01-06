@@ -16,7 +16,7 @@
 	<div id="body" class="main">
 		<div id="world" class="world">
 			<h1>Main</h1>
-			
+
 		</div>
 		<div id="time" class="time_cont">
 			<script type="text/javascript">
@@ -63,10 +63,7 @@
 	$.getJSON("weather_data.json", function(data){
 		$.each(data, function(key,val){
 				$("tr").append("<td>"+key+"</br>"+val[0]+"</br><img src='Images\\"+val[1]+"'></td>");
-				//$("tr").append("<td id=''"+key+"''>"+val.conditions+"</td>");
-			// items.push("<td id=''"+key+"''> <img src='Images\\"+val.image+"'></td>");
 		});
-		//$("<tbody/>", {html: items.join("")}).appendTo("table");
 	});
 	</script>
 </body>
