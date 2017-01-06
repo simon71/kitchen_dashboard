@@ -21,8 +21,9 @@ def day_img(condition):
 
             'Partly Cloudy':'light_cloud.png',
             'Light Cloud':'light_cloud.png',
+            'Thick Cloud':'thick_cloud.png',
             'Grey Cloud':'light_cloud.png',
-            'Mist':'mist.png',
+            'Mist':'fog.png',
             'Fog':'fog.png',
 
             'Thundery Shower':'heavy_thunder_showers.png',
@@ -49,7 +50,7 @@ def night_img(condition):
             'Partly Cloudy':'night_partly_cloudy.png',
             'Light Cloud':'night_partly_cloudy.png',
             'Thick Cloud':'night_thick_cloudy.png',
-            'Mist':'mist.png',
+            'Mist':'fog.png',
             'Fog':'fog.png',
 
             'Heavy Thunder':'night_heavy_thunder.png',
@@ -85,6 +86,20 @@ day_hrs = ["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:0
 weather_cond = dict(zip(hrs, condition))
 # dictionary where the key is the hour, and the value is the name of the image
 # representng the weather condition
+
+temp = [x.contents[0] for x in soup.find('tr', {'class':'temperature'}).findAll('span', {'class': 'units-value temperature-value temperature-value-unit-c'})]
+
+#dict of hour and temp
+weather_temp = dict(zip(hrs, temp))
+
+
+humidity = [x.string.strip() for x in soup.find('tr', {'class': 'humidity'}).findAll('td', {'class':'value hours-1'})]
+#dict hours and humidity
+weather_humidity = dict(zip(hrs, humidity))
+
+
+print(soup)
+
 weather_img = {}
 for h in weather_cond:
     if h in day_hrs:
@@ -94,7 +109,7 @@ for h in weather_cond:
 
 weather_data= {}
 for h in hrs:
-    weather_data[h] = weather_cond[h], weather_img[h]
+    weather_data[h] = weather_cond[h], weather_img[h], weather_temp[h], weather_humidity[h]
 
 #writes the json data to file
 with open('weather_data.json', 'w') as outfile:
