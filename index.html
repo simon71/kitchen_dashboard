@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>main</title>
+<title>Magic Mirror</title>
 <meta name="author" content="simon harvey">
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="stylesheet">
@@ -13,15 +13,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 </head>
 <body class="body">
-	<div id="body" class="main">
-		<div id="world" class="world">
+	<div id="body" class="body">
+		<div id="main" class="main">
 			<h1>Main</h1>
 
 		</div>
 		<div id="time" class="time_cont">
 			<script type="text/javascript">
-				tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-				tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+				tday=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
+				tmonth=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 
 				function GetClock(){
 				var d=new Date();
@@ -37,8 +37,8 @@
 				if(nmin<=9) nmin="0"+nmin;
 				if(nsec<=9) nsec="0"+nsec;
 
-				document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+ap+"";
-				document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+""
+				document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+"<style=\"font-size:10px;\">"+ap+"</style>";
+				document.getElementById('date').innerHTML=""+tday[nday]+"/"+ndate+"/"+tmonth[nmonth]+" "+nyear+""
 				}
 
 				window.onload=function(){
@@ -50,22 +50,31 @@
 				<div id="date" class="day"></div>
 		</div>
 		<div id="weather_main" class="weather">
-				<table class="weather_data">
-					<thead>
-						<tc>
-							<th></th>
-						</tc>
-					</thead>
+				<table>
+					<tbody>
+							<tr1 class="post"></tr1>
+							<tr2 class="pre"></tr2>
+					</tbody>
 				</table>
 		</div>
 	</div>
-	<script>
-	$.getJSON("weather_data.json", function(data){
-		$.each(data, function(key,val){
-				$("tr").append("<td>"+key+"</br>"+val[0]+"</br><img src='Images\\"+val[1]+"'></td>");
+		<script>
+		$.getJSON("weather_data_post.json", function(data){
+			$.each(data, function(key,val){
+					$('tr1').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
+			});
 		});
-	});
-	</script>
+		$.getJSON("weather_data_post.json", function(data){
+			$.each(data, function(key,val){
+					$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
+			});
+		});
+		$.getJSON("weather_data_pre.json", function(data){
+			$.each(data, function(key,val){
+					$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
+			});
+		});
+		</script>
 </body>
 
 </html>

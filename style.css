@@ -1,88 +1,66 @@
 .body {
-	margin: 0;
-	padding: 0;
-	background: black;
-	color: white;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	border-width: medium;
-	border-color: white;
+	margin: 					0;
+	padding: 					1%;
+	background: 			black;
+	color: 						white;
+	overflow: 				hidden;
+	max-height: 			1358px;
+	max-width: 				738px;
+	height: 					1358px;
+	width: 						738px;
 }
-
-.main{
-	float: right;
-	background: black;
-	max-width: 2880px;
-	max-height: 4800px;
-	height: 4800px;
-	width: 2880px;
+#body{
+	max-height: 			100%;
+	width: 						100%;
+	background-color: black;
 }
+#main{#
+	float:						left;
+	width:						30%;
+	height:						80%;
+	background-color: black;
 
-#title{
-	float: left;
-	width: 400px;
-	height:60px;
-	background-color: #0C090A;
 }
-
-	.title_text_main{
-		font-weight: bold;
-		font-size: 40px;
-		color: grey;
-		margin: 0px;
-		}
-
-	.title_text_small{
-		font-weight: bold;
-		font-size: 20px;
-		text-align: center;
-	}
-
 /* ------- content -----------*/
 
-.time_cont{
-	margin-right: 15px;
-	margin-top: 10px;
-	float: right;
-	margin-bottom: 20px;
-	font-family: "Courier New", Courier, monospace;
-
+#time{
+	position: absolute;
+	right:20px;
+	top: 100px;
+	font-family: 			"Courier New", Courier, monospace;
+	background-color: black;
 }
 
 	.time{
-		font-size: 30px;
-		text-align: center;
-		font-weight: bold;
-		color: #E5E4E2;/*platinum*/
+		font-size: 			40px;
+		text-align: 		center;
+		font-weight: 		bold;
+		color: 					#E5E4E2;/*platinum*/
 	}
 
 	.day{
-		font-size: 10px;
-		text-align: center;
-		font-weight: bold;
-		color: #E5E4E2;/*platinum*/
+		font-size: 			20px;
+		text-align: 		center;
+		font-weight: 		bold;
+		color: 					#E5E4E2;/*platinum*/
 	}
 
-.weather{
-	clear: right;
-	float: right;
-	padding-right: 30px;
+#weather_main{
+	float:left;
+	margin-top:				20px;
+	background-color: black;
+	margin-bottom: 		300px;
 }
-img{
-	width: 30px;
-	height: 30px;
-}
-
-table{
-	/*padding: 10px;
-	border-spacing: 10px;*/
-	max-column-width: 30px;
-	text-align: center;
-	word-wrap: normal;;
-	font-size: 10px;
-}
-
-.world{
-	float: left;
-	max-width: 60%;
-	width: 60%;
-}
+	table{
+		width: auto;
+	}
+	td{
+		width: 40px;
+		align-items: center;
+		text-align: center;
+		padding: 1px;
+	}
+	img{
+		width:					50px;
+		height:					50px;
+	}

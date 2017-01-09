@@ -1,0 +1,50 @@
+{
+    "03:00": [
+        "Light Rain",
+        "night_light_showers.png",
+        "11",
+        "92%",
+        "19",
+        "WSW"
+    ],
+    "01:00": [
+        "Light Rain",
+        "night_light_showers.png",
+        "10",
+        "94%",
+        "19",
+        "WSW"
+    ],
+    "00:00": [
+        "Light Rain",
+        "night_light_showers.png",
+        "10",
+        "96%",
+        "19",
+        "SW"
+    ],
+    "04:00": [
+        "Light Rain",
+        "night_light_showers.png",
+        "10",
+        "87%",
+        "20",
+        "W"
+    ],
+    "02:00": [
+        "Light Rain",
+        "night_light_showers.png",
+        "10",
+        "93%",
+        "19",
+        "WSW"
+    ],
+    "05:00": [
+        "Light Rain",
+        "light_rain.png",
+        "9",
+        "82%",
+        "21",
+        "W"
+    ]
+}

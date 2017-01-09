@@ -1,10 +1,50 @@
 {
+    "00:00": [
+        "Light Cloud",
+        "night_partly_cloudy.png",
+        "6",
+        "75%",
+        "19",
+        "W"
+    ],
+    "01:00": [
+        "Light Cloud",
+        "night_partly_cloudy.png",
+        "7",
+        "76%",
+        "19",
+        "W"
+    ],
+    "02:00": [
+        "Partly Cloudy",
+        "night_partly_cloudy.png",
+        "7",
+        "76%",
+        "19",
+        "W"
+    ],
+    "03:00": [
+        "Partly Cloudy",
+        "night_partly_cloudy.png",
+        "7",
+        "76%",
+        "19",
+        "W"
+    ],
+    "04:00": [
+        "Partly Cloudy",
+        "night_partly_cloudy.png",
+        "7",
+        "77%",
+        "18",
+        "W"
+    ],
     "05:00": [
-        "Thick Cloud",
-        "thick_cloud.png",
-        "9",
-        "99%",
-        "4",
-        "WNW"
+        "Partly Cloudy",
+        "light_cloud.png",
+        "7",
+        "78%",
+        "18",
+        "W"
     ]
 }
