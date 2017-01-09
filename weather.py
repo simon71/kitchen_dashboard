@@ -218,8 +218,8 @@ for i in hrs:
 
 #writes the json data to file
 with open('weather_data_tomorrow_post.json', 'w') as outfile:
-    json.dump(weather_data_tomorrow_post, outfile, indent=4, sort_keys=False)
+    json.dump(weather_data_tomorrow_post, outfile, indent=4, sort_keys=True)
 
 #writes the json data to file
 with open('weather_data_tomorrow_pre.json', 'w') as outfile:
-    json.dump(weather_data_tomorrow_pre, outfile, indent=4, sort_keys=False)
+    json.dump(weather_data_tomorrow_pre, outfile, indent=4, sort_keys=True)

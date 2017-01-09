@@ -5,22 +5,43 @@
 	color: 						white;
 	overflow: 				hidden;
 	max-height: 			1358px;
-	max-width: 				738px;
+	max-width: 				638px;
 	height: 					1358px;
-	width: 						738px;
+	width: 						638px;
 }
 #body{
 	max-height: 			100%;
 	width: 						100%;
 	background-color: black;
 }
-#main{#
+#main{
 	float:						left;
-	width:						30%;
-	height:						80%;
-	background-color: black;
-
+	width:						60%;
+	height:						70%;
 }
+#weather_table{
+	background-color: white;
+	width: 320px;
+}
+table.weather_today th, td{
+	background-color: black;
+	width: 						330px;
+	padding:					5px;
+	}
+
+.time_am_pm{
+	font-size: 				20px;
+}
+
+#clock{
+	float:						left;
+}
+#am_pm{
+	margin-top: 			20px;
+	margin-left: 			5px;
+	float:						right;
+}
+
 /* ------- content -----------*/
 
 #time{

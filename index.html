@@ -15,39 +15,63 @@
 <body class="body">
 	<div id="body" class="body">
 		<div id="main" class="main">
-			<h1>Main</h1>
+			<div id="weather_table">
+				<table class="weather_today">
+						<th colspan="2">
+							<script type="text/javascript">
+								tday=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
+								tmonth=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 
-		</div>
-		<div id="time" class="time_cont">
-			<script type="text/javascript">
-				tday=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
-				tmonth=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+								function GetClock(){
+								var d=new Date();
+								var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+								if(nyear<1000) nyear+=1900;
+								var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
 
-				function GetClock(){
-				var d=new Date();
-				var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-				if(nyear<1000) nyear+=1900;
-				var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+								if(nhour==0){ap=" AM";nhour=12;}
+								else if(nhour<12){ap=" AM";}
+								else if(nhour==12){ap=" PM";}
+								else if(nhour>12){ap=" PM";nhour-=12;}
 
-				if(nhour==0){ap=" AM";nhour=12;}
-				else if(nhour<12){ap=" AM";}
-				else if(nhour==12){ap=" PM";}
-				else if(nhour>12){ap=" PM";nhour-=12;}
+								if(nmin<=9) nmin="0"+nmin;
+								if(nsec<=9) nsec="0"+nsec;
 
-				if(nmin<=9) nmin="0"+nmin;
-				if(nsec<=9) nsec="0"+nsec;
+								document.getElementById('clock').innerHTML=""+tday[nday]+" "+ndate+" "+tmonth[nmonth]+" "+nhour+":"+nmin+" ";
+								document.getElementById('am_pm').innerHTML=ap;
 
-				document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+"<style=\"font-size:10px;\">"+ap+"</style>";
-				document.getElementById('date').innerHTML=""+tday[nday]+"/"+ndate+"/"+tmonth[nmonth]+" "+nyear+""
-				}
+								}
 
-				window.onload=function(){
-				GetClock();
-				setInterval(GetClock,1000);
-				}
-				</script>
-				<div id="clock" class="time"></div>
-				<div id="date" class="day"></div>
+								window.onload=function(){
+								GetClock();
+								setInterval(GetClock,1000);
+								}
+
+								</script>
+								<div id="clock" class="time"></div><div id="am_pm" class="time_am_pm"></div>
+						</th>
+					<tr>
+						<td id='present_temp'>
+							<script>
+							// var presentHour(){
+							// 	var h=new Date();
+							// 	var hour=h.GetHours();
+
+							$.getJSON("weather_data_post.json", function(data){
+								if (key == hour){
+										$('td').append("<td>"+key+"</td>");
+									}
+								});
+							</script>
+						</td>
+
+						<td>mid right</td>
+					</tr>
+					<tr>
+						<td>bottom left</td>
+						<td>bottom right</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div id="weather_main" class="weather">
 				<table>
@@ -64,12 +88,12 @@
 					$('tr1').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
 			});
 		});
-		$.getJSON("weather_data_post.json", function(data){
+		$.getJSON("weather_data_pre.json", function(data){
 			$.each(data, function(key,val){
 					$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
 			});
 		});
-		$.getJSON("weather_data_pre.json", function(data){
+		$.getJSON("weather_data_tomorrow_post.json", function(data){
 			$.each(data, function(key,val){
 					$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
 			});
