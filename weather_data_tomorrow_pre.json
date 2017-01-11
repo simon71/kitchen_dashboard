@@ -1,50 +1,50 @@
 {
     "00:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "10",
-        "95%",
-        "16",
-        "SW"
+        "Light Cloud",
+        "night_partly_cloudy.png",
+        "4",
+        "76%",
+        "40",
+        "NW"
     ],
     "01:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "11",
-        "94%",
-        "17",
-        "WSW"
+        "Light Cloud",
+        "night_partly_cloudy.png",
+        "4",
+        "76%",
+        "42",
+        "NW"
     ],
     "02:00": [
-        "Light Rain",
-        "night_light_showers.png",
-        "11",
-        "93%",
-        "17",
-        "WSW"
+        "Partly Cloudy",
+        "night_partly_cloudy.png",
+        "4",
+        "76%",
+        "43",
+        "NW"
     ],
     "03:00": [
-        "Light Rain",
-        "night_light_showers.png",
-        "11",
-        "91%",
-        "17",
-        "WSW"
+        "Light Cloud",
+        "night_partly_cloudy.png",
+        "4",
+        "75%",
+        "44",
+        "NW"
     ],
     "04:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "10",
-        "88%",
-        "17",
-        "WSW"
+        "Partly Cloudy",
+        "night_partly_cloudy.png",
+        "4",
+        "72%",
+        "43",
+        "NW"
     ],
     "05:00": [
-        "Light Cloud",
-        "light_cloud.png",
-        "10",
-        "82%",
-        "18",
-        "W"
+        "Light Rain Shower",
+        "light_rain_showers.png",
+        "4",
+        "71%",
+        "42",
+        "NW"
     ]
 }

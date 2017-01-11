@@ -20,13 +20,13 @@
 	height:						70%;
 }
 #weather_table{
-	background-color: white;
-	width: 320px;
+	background-color: 			white;
+	width: 						350px;
 }
 table.weather_today th, td{
-	background-color: black;
-	width: 						330px;
-	padding:					5px;
+	width:						350px;
+	background-color: 			black;
+	padding:					10px;
 	}
 
 .time_am_pm{

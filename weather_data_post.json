@@ -1,97 +1,121 @@
 {
-    "12:00": [
-        "Sunny",
-        "sun.png",
+    "09:00": [
+        "Sunny Intervals",
+        "sunny_intervals.png",
+        "6",
+        "66%",
+        "18",
+        "WNW"
+    ],
+    "10:00": [
+        "Light Cloud",
+        "light_cloud.png",
+        "6",
+        "64%",
+        "18",
+        "WNW"
+    ],
+    "11:00": [
+        "Light Cloud",
+        "light_cloud.png",
         "7",
-        "79%",
-        "15",
-        "W"
+        "66%",
+        "19",
+        "WNW"
+    ],
+    "12:00": [
+        "Sunny Intervals",
+        "sunny_intervals.png",
+        "7",
+        "63%",
+        "20",
+        "WNW"
     ],
     "13:00": [
-        "Sunny",
-        "sun.png",
+        "Sunny Intervals",
+        "sunny_intervals.png",
         "7",
-        "74%",
-        "15",
-        "W"
+        "62%",
+        "19",
+        "WNW"
     ],
     "14:00": [
-        "Sunny",
-        "sun.png",
-        "7",
-        "71%",
+        "Light Cloud",
+        "light_cloud.png",
+        "6",
+        "64%",
         "18",
-        "W"
+        "WNW"
     ],
     "15:00": [
         "Sunny Intervals",
         "sunny_intervals.png",
-        "7",
-        "69%",
-        "16",
-        "W"
+        "6",
+        "63%",
+        "18",
+        "WNW"
     ],
     "16:00": [
-        "Sunny Intervals",
-        "sunny_intervals.png",
-        "7",
-        "69%",
-        "16",
-        "W"
+        "Light Cloud",
+        "light_cloud.png",
+        "6",
+        "65%",
+        "17",
+        "WNW"
     ],
     "17:00": [
         "Partly Cloudy",
         "night_partly_cloudy.png",
-        "7",
-        "72%",
+        "5",
+        "67%",
         "16",
         "W"
     ],
     "18:00": [
         "Light Cloud",
         "night_partly_cloudy.png",
-        "7",
-        "73%",
+        "5",
+        "67%",
         "16",
         "W"
     ],
     "19:00": [
-        "Partly Cloudy",
+        "Light Cloud",
         "night_partly_cloudy.png",
-        "6",
-        "74%",
-        "16",
+        "5",
+        "68%",
+        "17",
         "W"
     ],
     "20:00": [
         "Partly Cloudy",
         "night_partly_cloudy.png",
-        "6",
-        "75%",
-        "15",
+        "5",
+        "68%",
+        "18",
         "W"
     ],
     "21:00": [
         "Partly Cloudy",
         "night_partly_cloudy.png",
-        "6",
-        "75%",
-        "16",
+        "5",
+        "69%",
+        "18",
         "W"
     ],
     "22:00": [
         "Light Cloud",
         "night_partly_cloudy.png",
-        "6",
-        "75%",
+        "5",
+        "71%",
         "17",
         "W"
     ],
     "23:00": [
-        "Light Cloud",
+        "Partly Cloudy",
         "night_partly_cloudy.png",
-        "6",
-        "75%",
+        "5",
+        "73%",
         "17",
         "W"
     ]
