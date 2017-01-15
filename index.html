@@ -10,42 +10,39 @@
 <meta http-equiv="refresh" content="3600">
 <Link rel="stylesheet" type="text/css" href="style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script> -->
 </head>
 <body class="body">
 	<div id="body" class="body">
 		<div id="main" class="main">
-			<div id="weather_table">
-				<table class="weather_today">
-						<th colspan="2">
-							<div id="clock" class="time"></div><div id="am_pm" class="time_am_pm"></div>
-						</th>
-						<tr>
-						<td id='present_temp'></td>
-						<td>mid right</td>
-						</tr>
-					<tr>
-						<td>bottom left</td>
-						<td>bottom right</td>
-					</tr>
-				</table>
+			<div id="time_date">
+				<div id="date"></div>
+				<div id="time"></div>
+			</div>
+			<div id="today_weather">
+				<div id="location" class="weather_text">Llangefni</div>
+				<div id="today_conditions" class="weather_text"></div>
+				<div id="today_img" class="weather_text"></div>
+				<div id="today_temp" class="weather_text"></div>
+				<div id="today_humidity" class="weather_text"></div>
+				<div id="today_windSpeed" class="weather_text"></div>
+				<div id="today_windDirection" class="weather_text"></div>
 			</div>
 		</div>
 		<div id="weather_main" class="weather">
 				<table>
 					<tbody>
-							<tr1 class="post"></tr1>
-							<tr2 class="pre"></tr2>
+							<tr id="hrly" class="post"></tr>
 					</tbody>
 				</table>
 		</div>
 	</div>
 		<script type="text/javascript">
+
 		$(document).ready(function() {
 
-
-			tday=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
-			tmonth=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+			tday=new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
+			tmonth=new Array("January","Feburary","March","April","May","June","July","August","September","October","November","December");
 
 			function GetClock(){
 				var d=new Date();
@@ -61,8 +58,9 @@
 				if(nmin<=9) nmin="0"+nmin;
 				if(nsec<=9) nsec="0"+nsec;
 
-				document.getElementById('clock').innerHTML=""+tday[nday]+" "+ndate+" "+tmonth[nmonth]+" "+nhour+":"+nmin+" ";
-				document.getElementById('am_pm').innerHTML=ap;
+
+				document.getElementById('time').innerHTML=nhour+":"+nmin+" ";
+				document.getElementById('date').innerHTML=tday[nday]+" "+ndate+" "+tmonth[nmonth];
 			}
 
 			window.onload=function(){
@@ -70,52 +68,51 @@
 				setInterval(GetClock,1000);
 			}
 
+				var weather_data=[];
+					$.getJSON("weather_data_post.json", function(data){
+						$.each(data, function(key,val){
+								weather_data.push(key+'":"'+val[1]);
+						});
+					});
+					$.getJSON("weather_data_pre.json", function(data){
+						$.each(data, function(key,val){
+								weather_data.push(key+'":"'+val[1]);
+						});
+					});
+					$.getJSON("weather_data_tomorrow_post.json", function(data){
+						$.each(data, function(key,val){
+								weather_data.push(key+'":"'+val[1]);
+						});
+					});
 
-			$.getJSON("weather_data_post.json", function(data){
-				$.each(data, function(key,val){
-						$('tr1').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
-				});
-			});
-			$.getJSON("weather_data_pre.json", function(data){
-				$.each(data, function(key,val){
-						$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
-				});
-			});
-			$.getJSON("weather_data_tomorrow_post.json", function(data){
-				$.each(data, function(key,val){
-						$('tr2').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
-				});
-			});
+					console.log(weather_data);
+
+
 
 			$.getJSON("weather_data_post.json", function(data){
 
 				var d = new Date();
-				var n = d.getHours()+1;
-				if (n.length=1){
-					n="0"+n+':00';
-				} else{
-					n=n+':00';
-				}
+				var n = d.getUTCHours()+1;
+						if (n.length==1){
+							n="0"+n+':00';
+						} else{
+							n=n+':00';
+						};
+
 
 				$.each(data, function(k,v){
-					today = [];
 
 					if (k == n){
-						today.push('<class="today_temp">'+v[2]);
-						today.push('</br>');
-						today.push('<class="today_humidity">'+v[3]);
-						today.push('</br>');
-						today.push('<class="today_windSpeed">'+v[4]);
-						today.push('</br>');
-						today.push('<class="today_windDirection">'+v[5]);
-						$('#present_temp').append(today);
+						document.getElementById('today_temp').innerHTML=v[2]+'<sup>o</sup><span class="deg">C</span>';
+						document.getElementById('today_conditions').innerHTML=v[0];
+						document.getElementById('today_humidity').innerHTML='Humidity: '+v[3];
+						document.getElementById('today_windSpeed').innerHTML='Wind Speed: '+v[4];
+						document.getElementById('today_windDirection').innerHTML='Wind Direction: '+v[5];
+						document.getElementById('today_img').innerHTML="<img class='main_img' src='Images\\"+v[1]+"'>"
 					};
 				});
 
 			});
-
-
-
 		});
 		</script>
 </body>
