@@ -8,9 +8,10 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="cache" content="no-cache">
 <meta http-equiv="refresh" content="3600">
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><!-- text font-->
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"><!--clock font-->
 <Link rel="stylesheet" type="text/css" href="style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script> -->
 </head>
 <body class="body">
 	<div id="body" class="body">
@@ -24,15 +25,17 @@
 				<div id="today_conditions" class="weather_text"></div>
 				<div id="today_img" class="weather_text"></div>
 				<div id="today_temp" class="weather_text"></div>
-				<div id="today_humidity" class="weather_text"></div>
-				<div id="today_windSpeed" class="weather_text"></div>
-				<div id="today_windDirection" class="weather_text"></div>
+				<div id="lable">Humidity:</div><div id="today_humidity" class="weather_text"></div>
+				<div id="lable">Wind Speed:</div><div id="today_windSpeed" class="weather_text"></div>
+				<div id="lable">Wind Direction:</div><div id="today_windDirection" class="weather_text"></div>
+				<div id="lable">Sun Rise:</div><div id="today_sunRise" class="weather_text"></div>
+				<div id="lable">Sun Set:</div><div id="today_sunSet" class="weather_text"></div>
 			</div>
 		</div>
 		<div id="weather_main" class="weather">
 				<table>
 					<tbody>
-							<tr id="hrly" class="post"></tr>
+                        <tc></tc><tc1></tc1>
 					</tbody>
 				</table>
 		</div>
@@ -50,10 +53,7 @@
 				if(nyear<1000) nyear+=1900;
 				var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
 
-				if(nhour==0){ap=" AM";nhour=12;}
-				else if(nhour<12){ap=" AM";}
-				else if(nhour==12){ap=" PM";}
-				else if(nhour>12){ap=" PM";nhour-=12;}
+				if(nhour<=9) nhour="0"+nhour;
 
 				if(nmin<=9) nmin="0"+nmin;
 				if(nsec<=9) nsec="0"+nsec;
@@ -63,57 +63,66 @@
 				document.getElementById('date').innerHTML=tday[nday]+" "+ndate+" "+tmonth[nmonth];
 			}
 
+
+
 			window.onload=function(){
 				GetClock();
 				setInterval(GetClock,1000);
 			}
 
-				var weather_data=[];
-					$.getJSON("weather_data_post.json", function(data){
-						$.each(data, function(key,val){
-								weather_data.push(key+'":"'+val[1]);
-						});
-					});
-					$.getJSON("weather_data_pre.json", function(data){
-						$.each(data, function(key,val){
-								weather_data.push(key+'":"'+val[1]);
-						});
-					});
-					$.getJSON("weather_data_tomorrow_post.json", function(data){
-						$.each(data, function(key,val){
-								weather_data.push(key+'":"'+val[1]);
-						});
-					});
-
-					console.log(weather_data);
-
-
-
-			$.getJSON("weather_data_post.json", function(data){
+			$.getJSON("jsonData/weather_data_post.json", function(data){
 
 				var d = new Date();
-				var n = d.getUTCHours()+1;
-						if (n.length==1){
-							n="0"+n+':00';
+				var sh = d.getUTCHours()+1;
+						n = "00:00"
+						if (sh<10){
+							n="0"+sh+':00';
 						} else{
-							n=n+':00';
+							n=sh+':00';
 						};
 
+						console.log(sh)
+    			$.each(data, function(k,v){
 
-				$.each(data, function(k,v){
+    				if (k == n){
+    					document.getElementById('today_temp').innerHTML=v[2]+'<sup>o</sup><span class="deg">C</span>';
+    					document.getElementById('today_conditions').innerHTML=v[0];
+    					document.getElementById('today_humidity').innerHTML=v[3];
+    					document.getElementById('today_windSpeed').innerHTML=v[4]+'<style="font-size:8px"> mph</style>';
+    					document.getElementById('today_windDirection').innerHTML=v[5];
+    					document.getElementById('today_img').innerHTML="<img class='main_img' src='Images\\"+v[1]+"'>";
+    				};
+    			});
+			});
 
-					if (k == n){
-						document.getElementById('today_temp').innerHTML=v[2]+'<sup>o</sup><span class="deg">C</span>';
-						document.getElementById('today_conditions').innerHTML=v[0];
-						document.getElementById('today_humidity').innerHTML='Humidity: '+v[3];
-						document.getElementById('today_windSpeed').innerHTML='Wind Speed: '+v[4];
-						document.getElementById('today_windDirection').innerHTML='Wind Direction: '+v[5];
-						document.getElementById('today_img').innerHTML="<img class='main_img' src='Images\\"+v[1]+"'>"
-					};
+			$.getJSON("jsonData/sun_rise.json", function(data){
+				$.each(data, function(key,value){
+					document.getElementById('today_sunRise').innerHTML=value;
+				});
+			});
+
+			$.getJSON("jsonData/sun_set.json", function(data){
+				$.each(data, function(key,value){
+					document.getElementById('today_sunSet').innerHTML=value;
+				});
+			});
+
+            $.getJSON("jsonData/weather_data_post.json", function(data){
+      			$.each(data, function(key,val){
+      					$('tc').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</tc>");
+      			});
+      		});
+			 $.getJSON("jsonData/weather_data_post1.json", function(data){
+					$.each(data, function(key,val){
+							$('tc1').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</tc>");
+					});
 				});
 
-			});
-		});
+        });
+
+
+
+
 		</script>
 </body>
 

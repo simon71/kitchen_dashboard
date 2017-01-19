@@ -18,12 +18,14 @@
 }
 
 /* ------- content -----------*/
+
+/* ----- time and date--------*/
 #time_date{
 	float:left;
 	width: auto;
 	height: auto;
-	padding-left: 2%;
-	padding-top: 2%;
+	padding-left: 1%;
+	padding-top: 1%;
 }
 
 	#time{
@@ -31,7 +33,7 @@
 		clear:left;
 		width: auto;
 		height:auto;
-		font-family:cursive;
+		font-family: 'Orbitron', sans-serif;
 		font-size: 50px;
 	}
 
@@ -40,30 +42,30 @@
 		width:auto;
 		height:auto;
 		font-size: 30px;
-		font-family:cursive;
+		font-family:'Orbitron', sans-serif;
 	}
+/* ---- weather ---------*/
 
 #location{
-	float:right;
-	width:auto;
-	height:auto;
+	font-size: 30px;
 }
 #today_weather{
+	width: 300px;
 	float: right;
-	clear:right;
-	text-align: right;
-	margin-right: 7%;
-	margin-top: 5%;
-	color: white;
-}
+	clear: none;
 
+}
+	#today_conditions{
+		font-size: 20px;
+
+	}
 	#today_temp{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
-		font-weight: bold;
-		font-size: 50px;
+		float: right;
+		width:30%;
+		font-size: 40px;
+		height: 100px;
+		text-align: right;
+		padding-right: 15%;
 	}
 
 		.deg{
@@ -71,59 +73,74 @@
 		}
 
 	#today_img{
-		width: auto;
-		height: auto;
-		float:left;
-		clear:right;
+		float: left;
+		width: 50%;
 	}
 
 	 .main_img{
 		 height: 100px;
 		 width:100px;
 	 }
+	 #lable{
+		 float: left;
+		 clear: left;
+		 width: 40%;
+		 font-family: 'Quicksand', sans-serif;
+		 font-size: 16px;
 
-	#today_conditions{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
-	}
+	 }
+	 #today_humidity{
+		 float: right;
+		 clear: right;
+		 width: 40%;
+		 text-align: right;
+		 padding-right: 15%;
+	 }
 
 	#today_windSpeed{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
+		float: right;
+		clear: right;
+		width: 40%;
+		text-align: right;
+		padding-right: 15%;
 	}
 
 	#today_windDirection{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
+		float: right;
+		clear: right;
+		width: 40%;
+		text-align: right;
+		padding-right: 15%;
 	}
 
-	#today_humidity{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
-	}
+
 
 	#today_conditions{
-		float:right;
-		clear:right;
-		width:auto;
-		height:auto;
-		font-size: 30px;
-		font-family: cursive;
-		font-weight: bold;
+		float: right;
+
 	}
 
-	 .weather_text{
-		font-size: 20px;
-	 	font-family: cursive;
-	 }
+	#today_sunRise{
+		float: right;
+		width: 40%;
+		text-align: right;
+		padding-right: 15%;
+	}
+
+	#today_sunSet{
+		float: right;
+		width: 40%;
+		text-align: right;
+		padding-right: 15%;
+	}
+
+	.weather_text{
+	   font-family: 'Quicksand', sans-serif;
+	   width: 100%;
+	   height: auto;
+	   font-size: 16px;
+
+	}
 
 #weather_main{
 	bottom: 2%;
