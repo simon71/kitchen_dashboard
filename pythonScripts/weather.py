@@ -3,8 +3,6 @@ import urllib.request
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import time
-import os
-from collections import OrderedDict
 
 
 def hours(s):
