@@ -17,5 +17,3 @@ speedtest-cli --simple >> ./speedtest.log
 
 #Adds a blank line between each entry
 echo "}" >> ./speedtest.log
-
-
