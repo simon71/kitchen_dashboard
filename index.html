@@ -30,12 +30,24 @@
 				<div id="lable">Wind Direction:</div><div id="today_windDirection" class="weather_text"></div>
 				<div id="lable">Sun Rise:</div><div id="today_sunRise" class="weather_text"></div>
 				<div id="lable">Sun Set:</div><div id="today_sunSet" class="weather_text"></div>
+				<div id="wkWeather">
+					<table id="ww">
+						<tc id='day'></tc>
+						<!--<tc id='img'></tc>
+						<tc id='temph'></tc>
+						<tc id='templ'></tc>
+						<tc id='wind'></tc>
+						<tc id='winds'></tc>
+						<tc id='windd'></tc>
+						<tc id="Wimg"></tc> -->
+					</table>
+				</div>
 			</div>
+
 		</div>
 		<div id="weather_main" class="weather">
 				<table>
 					<tbody>
-                        <tc></tc><tc1></tc1>
 					</tbody>
 				</table>
 		</div>
@@ -107,14 +119,29 @@
 				});
 			});
 
+			$.getJSON("jsonData/wkforecast.json", function(data){
+				$.each(data, function(k, v){
+					$('#ww').append("<tc>")
+					$('#ww').append("<tr><td>"+v[0]+"</td></tr>");
+					//$('#temph').append("<tr><td>High "+v[2]+"<sup>o</sup>C</td></tr>");
+					// $('#templ').append("<td>Low "+v[3]+"<sup>o</sup>C</td>");
+					// $('#wind').append("<td>"+"Wind"+"</td>");
+					// $('#winds').append("<td>"+v[4]+" mph</td>");
+					// $('#windd').append("<td>"+v[5]+"</td>");
+					$('#ww').append("<tr><tc><td>"+"<img src='Images\\"+v[6]+"'>"+"</td></tc></tr>");
+					// $('#Wimg').append("<td>"+"<img src='Images\\"+v[7]+"'>"+"</td>");
+					$('#ww').append("</tc>")
+				});
+			});
+
             $.getJSON("jsonData/weather_data_post.json", function(data){
       			$.each(data, function(key,val){
-      					$('tc').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</tc>");
+      					$('#weather_main').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
       			});
       		});
 			 $.getJSON("jsonData/weather_data_post1.json", function(data){
 					$.each(data, function(key,val){
-							$('tc1').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</tc>");
+							$('#weather_main').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
 					});
 				});
 

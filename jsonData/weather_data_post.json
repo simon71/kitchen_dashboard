@@ -1,90 +1,114 @@
 {
+    "09:00": [
+        "Light Cloud",
+        "light_cloud.png",
+        "5",
+        "92%",
+        "4",
+        "SE"
+    ],
+    "10:00": [
+        "Sunny",
+        "sun.png",
+        "6",
+        "87%",
+        "4",
+        "SSE"
+    ],
+    "11:00": [
+        "Sunny",
+        "sun.png",
+        "7",
+        "81%",
+        "4",
+        "SSE"
+    ],
+    "12:00": [
+        "Sunny",
+        "sun.png",
+        "7",
+        "77%",
+        "3",
+        "SSE"
+    ],
     "13:00": [
-        "Thick Cloud",
-        "thick_cloud.png",
+        "Sunny",
+        "sun.png",
         "8",
-        "85%",
-        "2",
-        "NNE"
+        "75%",
+        "3",
+        "ESE"
     ],
     "14:00": [
-        "Thick Cloud",
-        "thick_cloud.png",
-        "9",
-        "82%",
+        "Sunny",
+        "sun.png",
+        "8",
+        "76%",
         "3",
         "NE"
     ],
     "15:00": [
-        "Thick Cloud",
-        "thick_cloud.png",
-        "9",
-        "84%",
-        "3",
+        "Sunny",
+        "sun.png",
+        "7",
+        "79%",
+        "4",
         "NE"
     ],
     "16:00": [
-        "Thick Cloud",
-        "thick_cloud.png",
-        "8",
-        "87%",
-        "3",
+        "Sunny",
+        "sun.png",
+        "6",
+        "85%",
+        "4",
         "NE"
     ],
     "17:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "8",
-        "89%",
-        "3",
-        "NE"
+        "Clear Sky",
+        "night_clear_sky.png",
+        "4",
+        "84%",
+        "4",
+        "ENE"
     ],
     "18:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "91%",
-        "4",
-        "NE"
+        "Clear Sky",
+        "night_clear_sky.png",
+        "3",
+        "82%",
+        "5",
+        "ESE"
     ],
     "19:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "92%",
+        "Clear Sky",
+        "night_clear_sky.png",
+        "3",
+        "81%",
         "4",
-        "ENE"
-    ],
-    "20:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "93%",
-        "4",
-        "ENE"
+        "E"
     ],
     "21:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "91%",
-        "5",
+        "Clear Sky",
+        "night_clear_sky.png",
+        "2",
+        "83%",
+        "4",
         "ENE"
     ],
     "22:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "93%",
+        "Clear Sky",
+        "night_clear_sky.png",
+        "1",
+        "82%",
         "4",
         "ENE"
     ],
     "23:00": [
-        "Thick Cloud",
-        "night_thick_cloudy.png",
-        "7",
-        "93%",
-        "4",
-        "E"
+        "Clear Sky",
+        "night_clear_sky.png",
+        "1",
+        "83%",
+        "3",
+        "NE"
     ]
 }

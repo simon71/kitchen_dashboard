@@ -50,7 +50,7 @@
 	font-size: 30px;
 }
 #today_weather{
-	width: 300px;
+	width: 350px;
 	float: right;
 	clear: none;
 
@@ -113,8 +113,6 @@
 		padding-right: 15%;
 	}
 
-
-
 	#today_conditions{
 		float: right;
 
@@ -140,6 +138,18 @@
 	   height: auto;
 	   font-size: 16px;
 
+	}
+
+#wkWeather{
+	float:right;
+	width:100%;
+	height:auto;
+	font-family: 'Quicksand', sans-serif;
+}
+	#ww{
+		width: 200px
+		padding-right: 15%;
+		padding-top: 5%;
 	}
 
 #weather_main{

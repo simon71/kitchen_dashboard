@@ -1,0 +1,52 @@
+{
+    "0": [
+        "Fri",
+        "Sunny",
+        "8",
+        "-2",
+        "2",
+        "SSW",
+        "sun.png",
+        "wind/SSW.png"
+    ],
+    "1": [
+        "Sat",
+        "Sunny",
+        "4",
+        "-2",
+        "3",
+        "SW",
+        "sun.png",
+        "wind/SW.png"
+    ],
+    "2": [
+        "Sun",
+        "Light Cloud",
+        "5",
+        "1",
+        "6",
+        "S",
+        "light_cloud.png",
+        "wind/S.png"
+    ],
+    "3": [
+        "Mon",
+        "Sunny Intervals",
+        "7",
+        "2",
+        "7",
+        "S",
+        "sunny_intervals.png",
+        "wind/S.png"
+    ],
+    "4": [
+        "Tue",
+        "Light Cloud",
+        "8",
+        "4",
+        "15",
+        "S",
+        "light_cloud.png",
+        "wind/S.png"
+    ]
+}
