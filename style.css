@@ -141,16 +141,26 @@
 	}
 
 #wkWeather{
+	padding-top: 10%;
+	padding-right: 10%;
 	float:right;
 	width:100%;
 	height:auto;
 	font-family: 'Quicksand', sans-serif;
 }
-	#ww{
-		width: 200px
-		padding-right: 15%;
-		padding-top: 5%;
-	}
+ #wkWeather td {
+	 align-items: centre;
+	 width: 64px;
+	 height: 64px;
+	 font-family: inherit;
+ }
+ #windImg{
+	 font-weight: bolder;
+	 font-family: inherit;
+	 color: black;
+	 filter:invert();
+ }
+
 
 #weather_main{
 	bottom: 2%;
@@ -161,7 +171,8 @@
 		width: auto;
 	}
 	td{
-		width: 40px;
+		width:auto;
+		height:auto;
 		align-items: center;
 		text-align: center;
 		padding: 1px;

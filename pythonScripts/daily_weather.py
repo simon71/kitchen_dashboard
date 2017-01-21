@@ -35,22 +35,22 @@ def weather_img(conditions):
 
 def wind_direction(windDir):
     return{
-            'South South Westerly':'wind/SSW.png',
-            'South Westerly':'wind/SW.png',
-            'Southerly':'wind/S.png',
-            'South South Easterly':'wind/SSE.png',
-            'South Easterly':'wind/SE.png',
-            'South East Easterly':'wind/SEE.png',
-            'East':'wind/E.png',
-            'East North Easterly':'wind/NEE.png',
+            'Northerly':'wind/N.png',
+            'North North Easterly':'wind/NE.png',
             'North East':'wind/NE.png',
-            'North North East':'wind/NNE.png',
-            'North':'wind/North.png',
-            'North North Westerly':'wind/WNN.png',
+            'North East Easterly':'wind/NE.png',
+            'Easterly':'wind/E.png',
+            'East South Easterly':'wind/SE.png',
+            'South Easterly':'wind/SE.png',
+            'South South Easterly':'wind/SE.png',
+            'Southerly':'wind/S.png',
+            'South South Westerly':'wind/SW.png',
+            'South Westerly':'wind/SW.png',
+            'Sount West Westerly':'wind/SW.png',
+            'Westerly':'wind/W.png',
+            'West North Westerly':'wind/NW.png',
             'North West':'wind/NW.png',
-            'North West Westerly':'wind/WWN.png',
-            'North East Easterly':'wind/NNE.png',
-            'Sount West Westerly':'wind/SWW.png',
+            'North North Westerly':'wind/NW.png',
             '':'wind/none.png'
         }.get(windDir, None)
 
@@ -79,7 +79,7 @@ windDir = ["".join([item[0] for item in x.text.split()])
  for x in weekWeather.select('span.description.blq-hide')]
 
 
-wk = [0,1,2,3,4]
+wk = [0,1,2,3,4,5]
 
 dCond = dict(zip(wk,condition))
 dWind = dict(zip(wk,windDir))
@@ -92,7 +92,7 @@ for wk in dWind:
     windImg[wk] = (wind_direction(windDirT[wk]))
 
 wkForecast = {}
-wks = [0,1,2,3,4]
+wks = [0,1,2,3]
 for i in wks:
     wkForecast[i] = day[i], condition[i], max_temp[i], min_temp[i], windSpeed[i], windDir[i], wImg[i], windImg[i]
 

@@ -1,52 +1,42 @@
 {
     "0": [
-        "Fri",
-        "Sunny",
-        "8",
-        "-2",
-        "2",
-        "SSW",
-        "sun.png",
-        "wind/SSW.png"
-    ],
-    "1": [
         "Sat",
         "Sunny",
-        "4",
+        "5",
         "-2",
-        "3",
-        "SW",
+        "2",
+        "WNW",
         "sun.png",
+        "wind/NW.png"
+    ],
+    "1": [
+        "Sun",
+        "Light Rain Shower",
+        "6",
+        "1",
+        "8",
+        "SSW",
+        "light_rain_showers.png",
         "wind/SW.png"
     ],
     "2": [
-        "Sun",
-        "Light Cloud",
+        "Mon",
+        "Sunny",
+        "7",
         "5",
-        "1",
-        "6",
-        "S",
-        "light_cloud.png",
-        "wind/S.png"
+        "10",
+        "SSW",
+        "sun.png",
+        "wind/SW.png"
     ],
     "3": [
-        "Mon",
-        "Sunny Intervals",
-        "7",
-        "2",
-        "7",
-        "S",
-        "sunny_intervals.png",
-        "wind/S.png"
-    ],
-    "4": [
         "Tue",
         "Light Cloud",
-        "8",
-        "4",
-        "15",
-        "S",
+        "9",
+        "5",
+        "18",
+        "SSW",
         "light_cloud.png",
-        "wind/S.png"
+        "wind/SW.png"
     ]
 }
