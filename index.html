@@ -10,7 +10,7 @@
 <meta http-equiv="refresh" content="3600">
 <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><!-- text font-->
 <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"><!--clock font-->
-<Link rel="stylesheet" type="text/css" href="style.css" />
+<Link rel="stylesheet" type="text/css" href="../style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body class="body">
@@ -84,7 +84,7 @@
 				setInterval(GetClock,1000);
 			}
 
-			$.getJSON("jsonData/weather_data_post.json", function(data){
+			$.getJSON("../jsonData/weather_data_post.json", function(data){
 
 				var d = new Date();
 				var sh = d.getUTCHours()+1;
@@ -109,19 +109,19 @@
     			});
 			});
 
-			$.getJSON("jsonData/sun_rise.json", function(data){
+			$.getJSON("../jsonData/sun_rise.json", function(data){
 				$.each(data, function(key,value){
 					document.getElementById('today_sunRise').innerHTML=value;
 				});
 			});
 
-			$.getJSON("jsonData/sun_set.json", function(data){
+			$.getJSON("../jsonData/sun_set.json", function(data){
 				$.each(data, function(key,value){
 					document.getElementById('today_sunSet').innerHTML=value;
 				});
 			});
 
-			$.getJSON("jsonData/wkforecast.json", function(data){
+			$.getJSON("../jsonData/wkforecast.json", function(data){
 				$.each(data, function(k, v){
 					$('#day').append('<tr>')
 			 		$('#day').append("<td>"+v[0]+"</td>");
@@ -133,12 +133,12 @@
 				$('#day').append("</tc>");
 			});
 
-            $.getJSON("jsonData/weather_data_post.json", function(data){
+            $.getJSON("../jsonData/weather_data_post.json", function(data){
       			$.each(data, function(key,val){
       					$('#weather_main').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
       			});
       		});
-			 $.getJSON("jsonData/weather_data_post1.json", function(data){
+			 $.getJSON("../jsonData/weather_data_post1.json", function(data){
 					$.each(data, function(key,val){
 							$('#weather_main').append("<td>"+key+"</br>"+"<img src='Images\\"+val[1]+"'>"+"</td>");
 					});

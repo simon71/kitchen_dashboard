@@ -135,10 +135,10 @@ if len(weather_data_post) < 12:
 
 
 #writes the json data to file
-with open('jsonData/weather_data_post1.json', 'w') as outfile:
+with open('../jsonData/weather_data_post1.json', 'w') as outfile:
     json.dump(weather_data_post1, outfile, indent=4, sort_keys=True)
 
-with open('jsonData/weather_data_post.json', 'w') as outfile:
+with open('../jsonData/weather_data_post.json', 'w') as outfile:
     json.dump(weather_data_post, outfile, indent=4, sort_keys=True)
 
 
@@ -151,8 +151,8 @@ sun_set = soup.find('div', {'class':'sunrise-sunset'}).find('span', {'class':'su
 # sunData = {}
 # sunData = {'set':sun_set[-5:], 'rise':sun_rise[-5:]}
 
-with open('jsonData/sun_rise.json', 'w') as outfile:
+with open('../jsonData/sun_rise.json', 'w') as outfile:
     json.dump({"set":sun_set[-5:]}, outfile, indent=4)
 
-with open('jsonData/sun_set.json', 'w') as outfile:
+with open('../jsonData/sun_set.json', 'w') as outfile:
     json.dump({"rise":sun_rise[-5:]}, outfile, indent=4)
