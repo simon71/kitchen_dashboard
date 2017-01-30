@@ -1,1 +1,1 @@
-# kitchen_dashboard
+# Magic Mirror
