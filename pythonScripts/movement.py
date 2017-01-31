@@ -1,53 +1,40 @@
-# CamJam EduKit 2 - Sensors
-# Worksheet 2 - Movement
+#!/usr/bin/env python
 
-# Import Python header files
-import RPi.GPIO as GPIO
+import sys
 import time
+import RPi.GPIO as io
+import subprocess
 
-# Set the GPIO naming convention
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
+io.setmode(io.BCM)
+SHUTOFF_DELAY = 60  # seconds
+PIR_PIN = 7         # Pin 26 on the board
 
-# Set a variable to hold the GPIO Pin identity
-PinPIR = 17
+def main():
+    io.setup(PIR_PIN, io.IN)
+    turned_off = False
+    last_motion_time = time.time()
 
-print("PIR Module Test (CTRL-C to exit)")
-
-# Set pin as input
-GPIO.setup(PinPIR, GPIO.IN)
-
-# Variables to hold the current and last states
-Current_State  = 0
-Previous_State = 0
-
-try:
-    print("Waiting for PIR to settle ...")
-    # Loop until PIR output is 0
-    while GPIO.input(PinPIR) == 1:
-        Current_State = 0
-
-    print("    Ready")
-    # Loop until users quits with CTRL-C
     while True:
-        # Read PIR state
-        Current_State = GPIO.input(PinPIR)
+        if io.input(PIR_PIN):
+            last_motion_time = time.time()
+            sys.stdout.flush()
+            if turned_off:
+                turned_off = False
+                turn_on()
+        else:
+            if not turned_off and time.time() &amp;amp;amp;gt; (last_motion_time + SHUTOFF_DELAY):
+                turned_off = True
+                turn_off()
+        time.sleep(.1)
 
-        # If the PIR is triggered
-        if Current_State == 1 and Previous_State == 0:
-            print("    Motion detected!")
-            # Record previous state
-            Previous_State = 1
-        # If the PIR has returned to ready state
-        elif Current_State == 0 and Previous_State == 1:
-            print("    Ready")
-            Previous_State = 0
+def turn_on():
+    subprocess.call(&amp;amp;amp;quot;sh /home/simon/www/magic_mirror/shell_scripts/monitor_on.sh&amp;amp;amp;quot;, shell=True)
 
-        # Wait for 10 milliseconds
-        time.sleep(0.01)
+def turn_off():
+    subprocess.call(&amp;amp;amp;quot;sh /home/simon/www/magic_mirror/shell_scripts/monitor_off.sh&amp;amp;amp;quot;, shell=True)
 
-except KeyboardInterrupt:
-    print("    Quit")
-
-    # Reset GPIO settings
-    GPIO.cleanup()
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        io.cleanup()
