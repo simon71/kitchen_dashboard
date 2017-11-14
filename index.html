@@ -82,13 +82,13 @@ function updateClock()
   // Convert month int to string
   tmonth=new Array("January","Feburary","March","April","May","June","July","August","September","October","November","December");
   
-  var currentFullMonth = tmonth[currentMonth]
+  var currentFullMonth = tmonth[currentMonth];
 
   // pad date
-  var paddedDate = (currentDateString < 10 ? " " : "" ) + currentDateString
+  var paddedDate = (currentDateString < 10 ? " " : "" ) + currentDateString;
 
   // choose day suffix
-  var daySuffix = (currentDateString == 1 ) ? "st" : (currentDateString == 2 ) ? "nd" : (currentDateString == 3 ) ? "rd" : "th"
+  var daySuffix = (currentDateString == 1 ) ? "st" : (currentDateString == 2 ) ? "nd" : (currentDateString == 3 ) ? "rd" : "th";
 
   // compose the date
   var currentDateString = paddedDate + daySuffix + " " + currentFullMonth + " " + currentYear;
