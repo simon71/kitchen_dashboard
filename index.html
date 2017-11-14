@@ -91,7 +91,7 @@ function updateClock()
   var daySuffix = (currentDateString == 1 ) ? "st" : (currentDateString == 2 ) ? "nd" : (currentDateString == 3 ) ? "rd" : "th";
 
   // compose the date
-  var currentDateString = paddedDate + daySuffix + " " + currentFullMonth + " " + currentYear;
+  var currentDateString = currentDateString + daySuffix + " " + currentFullMonth + " " + currentYear;
   
   // Compose the string for display
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
