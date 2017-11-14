@@ -6,19 +6,19 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <meta http-equiv="content-style-type" content="stylesheet">
 <meta http-equiv="expires" content="0">
-<meta http-equiv="cache" content="no-cache">
+<meta http-equiv="cache" content ="no-cache">
 <meta http-equiv="refresh" content="3600">
 <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><!-- text font-->
 <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"><!--clock font-->
 <Link rel="stylesheet" type="text/css" href="./style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-<body class="body">
+<body onload="updateClock(); setInterval('updateClock()', 1000 )" style=" margin-top: auto;margin-bottom: auto;margin-left: auto;margin-right: auto;">
 	<div id="body" class="body">
 		<div id="main" class="main">
 			<div id="time_date">
-				<div id="date"></div>
-				<div id="time"></div>
+				<span id="date">&nbsp</span>
+				<span id="time">&nbsp</span>
 			</div>
 			<div id="today_weather">
 				<div id="location" class="weather_text">Llangefni</div>
@@ -28,8 +28,8 @@
 				<div id="lable">Humidity:</div><div id="today_humidity" class="weather_text"></div>
 				<div id="lable">Wind Speed:</div><div id="today_windSpeed" class="weather_text"></div>
 				<div id="lable">Wind Direction:</div><div id="today_windDirection" class="weather_text"></div>
-				<div id="lable">Sun Rise:</div><div id="today_sunRise" class="weather_text"></div>
-				<div id="lable">Sun Set:</div><div id="today_sunSet" class="weather_text"></div>
+				<div id="lable">Sun Rise:</div><div id="today_sunSet" class="weather_text"></div>
+				<div id="lable">Sun Set:</div><div id="today_sunRise" class="weather_text"></div>
 				<div id="wkWeather">
 					<table>
 						<thead>
@@ -56,46 +56,57 @@
 	</div>
 		<script type="text/javascript">
 
-		$(document).ready(function() {
+function updateClock()
+{
+  var currentTime = new Date();
+  var currentDay = currentTime.getDate();
+  var currentMonth = currentTime.getMonth();
+  var currentYear = currentTime.getFullYear();
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
 
-			tday=new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
-			tmonth=new Array("January","Feburary","March","April","May","June","July","August","September","October","November","December");
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
-			function GetClock(){
-				var d=new Date();
-				var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-				if(nyear<1000) nyear+=1900;
-				var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
 
-				if(nhour<=9) nhour="0"+nhour;
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
 
-				if(nmin<=9) nmin="0"+nmin;
-				if(nsec<=9) nsec="0"+nsec;
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
+  // Convert month int to string
+  tmonth=new Array("January","Feburary","March","April","May","June","July","August","September","October","November","December");
+  var currentFullMonth = tmonth[currentMonth]
+  // compose theh date
+  var currentDateString = currentDay + "/" + currentFullMonth + "/" + currentYear;
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
 
-				document.getElementById('time').innerHTML=nhour+":"+nmin+" ";
-				document.getElementById('date').innerHTML=tday[nday]+" "+ndate+" "+tmonth[nmonth];
-			}
+  // Update the time display
+  document.getElementById("time").firstChild.nodeValue = currentTimeString;
+  document.getElementById("date").firstChild.nodeValue = currentDateString;
+}
+				
+var d = new Date();
+$(document).ready(function() {
 
+tday=new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
 
+$.getJSON("./jsonData/weather_data_post.json", function(data){
+		var sh = d.getUTCHours()+1;
+				n = "00:00"
+				if (sh<10){
+					n="0"+sh+':00';
+				} else{
+					n=sh+':00';
+				};
+				console.log(sh)
 
-			window.onload=function(){
-				GetClock();
-				setInterval(GetClock,1000);
-			}
-
-			$.getJSON("../jsonData/weather_data_post.json", function(data){
-
-				var d = new Date();
-				var sh = d.getUTCHours()+1;
-						n = "00:00"
-						if (sh<10){
-							n="0"+sh+':00';
-						} else{
-							n=sh+':00';
-						};
-
-						console.log(sh)
     			$.each(data, function(k,v){
 
     				if (k == n){
@@ -109,19 +120,19 @@
     			});
 			});
 
-			$.getJSON("../jsonData/sun_rise.json", function(data){
+			$.getJSON("./jsonData/sun_rise.json", function(data){
 				$.each(data, function(key,value){
 					document.getElementById('today_sunRise').innerHTML=value;
 				});
 			});
 
-			$.getJSON("../jsonData/sun_set.json", function(data){
+			$.getJSON("./jsonData/sun_set.json", function(data){
 				$.each(data, function(key,value){
 					document.getElementById('today_sunSet').innerHTML=value;
 				});
 			});
 
-			$.getJSON("../jsonData/wkforecast.json", function(data){
+			$.getJSON("./jsonData/wkforecast.json", function(data){
 				$.each(data, function(k, v){
 					$('#day').append('<tr>')
 			 		$('#day').append("<td>"+v[0]+"</td>");
@@ -133,16 +144,17 @@
 				$('#day').append("</tc>");
 			});
 
-            $.getJSON("../jsonData/weather_data_post.json", function(data){
-      			$.each(data, function(key,val){
+	               $.getJSON("./jsonData/weather_data_post1.json", function(data){
+      				$.each(data, function(key,val){
       					$('#weather_main').append("<td>"+key+"</br>"+"<img src='../Images/"+val[1]+"'>"+"</td>");
+      				});
       			});
-      		});
-			 $.getJSON("../jsonData/weather_data_post1.json", function(data){
-					$.each(data, function(key,val){
-							$('#weather_main').append("<td>"+key+"</br>"+"<img src='../Images/"+val[1]+"'>"+"</td>");
-					});
+			 
+		       $.getJSON("./jsonData/weather_data_post.json", function(data){
+				$.each(data, function(key,val){
+					$('#weather_main').append("<td>"+key+"</br>"+"<img src='../Images/"+val[1]+"'>"+"</td>");
 				});
+			});
 
         });
 
