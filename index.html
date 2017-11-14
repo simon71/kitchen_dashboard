@@ -62,9 +62,9 @@ function updateClock()
   var currentDay = currentTime.getDate();
   var currentMonth = currentTime.getMonth();
   var currentYear = currentTime.getFullYear();
-  var currentHours = currentTime.getHours ( );
-  var currentMinutes = currentTime.getMinutes ( );
-  var currentSeconds = currentTime.getSeconds ( );
+  var currentHours = currentTime.getHours();
+  var currentMinutes = currentTime.getMinutes();
+  var currentSeconds = currentTime.getSeconds();
 
   // Pad the minutes and seconds with leading zeros, if required
   currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
@@ -81,9 +81,18 @@ function updateClock()
 
   // Convert month int to string
   tmonth=new Array("January","Feburary","March","April","May","June","July","August","September","October","November","December");
+  
   var currentFullMonth = tmonth[currentMonth]
-  // compose theh date
-  var currentDateString = currentDay + "/" + currentFullMonth + "/" + currentYear;
+
+  // pad date
+  var paddedDate = (currentDateString < 10 ? " " : "" ) + currentDateString
+
+  // choose day suffix
+  var daySuffix = (currentDateString == 1 ) ? "st" : (currentDateString == 2 ) ? "nd" : (currentDateString == 3 ) ? "rd" : "th"
+
+  // compose the date
+  var currentDateString = paddedDate + daySuffix + " " + currentFullMonth + " " + currentYear;
+  
   // Compose the string for display
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
 
