@@ -85,13 +85,13 @@ function updateClock()
   var currentFullMonth = tmonth[currentMonth];
 
   // pad date
-  // paddedDate = (currentDateString < 10 ) ? " " + currentDateString : currentDateString;
+  paddedDate = (currentDay < 10 ) ? " " + currentDay : currentDay;
 
   // choose day suffix
-  //var daySuffix = (currentDateString == 1 ) ? "st" : (currentDateString == 2 ) ? "nd" : (currentDateString == 3 ) ? "rd" : "th";
+  var daySuffix = (currentDay == 1 ) ? "st" : (currentDay == 2 ) ? "nd" : (currentDay == 3 ) ? "rd" : "th";
 
   // compose the date
-  var currentDateString = currentDateString + " " + currentFullMonth + " " + currentYear;
+  var currentDateString = currentDay + daySuffix + " " + currentFullMonth + " " + currentYear;
   
   // Compose the string for display
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
