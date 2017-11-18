@@ -83,7 +83,7 @@ if len(hrs) != len(condition):
 day_hrs = ["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00"]
 
 presentHour = time.strftime('%H')+':00' #present hour returned for using in compilling json files later
-phplus = (datetime.utcnow()+2 + timedelta(hours=12)).strftime('%H')+':00'#time in 12 hours used in compiling json files
+phplus = ((datetime.utcnow()+2) + timedelta(hours=12)).strftime('%H')+':00'#time in 12 hours used in compiling json files
 
 
 # dictionary where the key is the hour, and the value is the weather condition
