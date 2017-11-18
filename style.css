@@ -154,20 +154,12 @@
 		height: 			64px;
 		font-family: 		inherit;
 	}
-div#countryTitle p{
-	font-family: 		'Quicksans', sans-serif;
-	font-size: 			40px;
-	font-weight: 		bold;
-	padding-right: 		10%;
-}
  	#windImg{
 		font-weight: 		bolder;
 	 	font-family: 		inherit;
 	 	color:		 		black;
 	 	filter:				invert();
  	}
-
-
 #weather_main{
 	bottom: 		2%;
 	position:		fixed;
