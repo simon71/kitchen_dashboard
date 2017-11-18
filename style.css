@@ -148,18 +148,13 @@
 	height:				auto;
 	font-family: 		'Quicksand', sans-serif;
 }
-	#wkWeather td{
-		align-items: 		centre;
-		width: 				64px;
-		height: 			64px;
-		font-family: 		inherit;
-	}
- 	#windImg{
-		font-weight: 		bolder;
-	 	font-family: 		inherit;
-	 	color:		 		black;
-	 	filter:				invert();
- 	}
+#wkWeather td{
+	align-items: 		centre;
+	width: 				64px;
+	height: 			64px;
+	font-family: 		inherit;
+}
+
 #weather_main{
 	bottom: 		2%;
 	position:		fixed;
