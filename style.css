@@ -143,8 +143,8 @@
 	}
 
 #wkWeather{
-	padding-top: 		10%;
-	padding-right: 		10%;
+	padding-top: 		5%;
+	padding-right: 		5%;
 	float:			right;
 	width:			100%;
 	height:			auto;
@@ -157,8 +157,9 @@
 	 font-family: 		inherit;
  }
 	#countryTitle {
-		font-family: 		sans-serif;
+		font-family: 		'Quicksans', sans-serif;
 		font-size: 			20px;
+		font-weight: 		bold;
 		padding-right: 		10%;
 	}
  #windImg{
