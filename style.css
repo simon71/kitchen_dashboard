@@ -150,13 +150,13 @@
 	height:				auto;
 	font-family: 		'Quicksand', sans-serif;
 }
-	#wkWeather td {
+	#wkWeather td{
 		align-items: 		centre;
 		width: 				64px;
 		height: 			64px;
 		font-family: 		inherit;
 	}
-div#countryTitle {
+div#countryTitle p{
 	font-family: 		'Quicksans', sans-serif;
 	font-size: 			40px;
 	font-weight: 		bold;
