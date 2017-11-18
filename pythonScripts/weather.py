@@ -1,8 +1,9 @@
 import json
 import urllib.request
-from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import time
+from bs4 import BeautifulSoup
+
 
 
 def hours(s):
@@ -16,59 +17,59 @@ def fatal(s):
 
 def day_img(condition):
     return {
-            'Clear Sky':'sun.png',
-            'Sunny':'sun.png',
-            'Sunny Intervals':'sunny_intervals.png',
+        'Clear Sky':'sun.png',
+        'Sunny':'sun.png',
+        'Sunny Intervals':'sunny_intervals.png',
 
-            'Partly Cloudy':'light_cloud.png',
-            'Light Cloud':'light_cloud.png',
-            'Thick Cloud':'thick_cloud.png',
-            'Grey Cloud':'light_cloud.png',
-            'Mist':'fog.png',
-            'Fog':'fog.png',
+        'Partly Cloudy':'light_cloud.png',
+        'Light Cloud':'light_cloud.png',
+        'Thick Cloud':'thick_cloud.png',
+        'Grey Cloud':'light_cloud.png',
+        'Mist':'fog.png',
+        'Fog':'fog.png',
 
-            'Thundery Shower':'heavy_thunder_showers.png',
-            'Heavy Thunder':'heavy_thunder.png',
-            'Drizzle':'light_rain.png',
-            'Light Rain':'light_rain.png',
-            'Light Rain Shower':'light_rain_showers.png',
+        'Thundery Shower':'heavy_thunder_showers.png',
+        'Heavy Thunder':'heavy_thunder.png',
+        'Drizzle':'light_rain.png',
+        'Light Rain':'light_rain.png',
+        'Light Rain Shower':'light_rain_showers.png',
 
-            'Heavy Rain':'heavy_rain.png',
-            'Heavy Rain Shower':'heavy_rain_showers.png',
+        'Heavy Rain':'heavy_rain.png',
+        'Heavy Rain Shower':'heavy_rain_showers.png',
 
-            'Sleet':'sleet.png',
-            'Light Snow':'light_snow.png',
-            'Light Snow Shower':'light_snow_showers.png',
-            'Light Snow Rain Showers':'light_snow_rain_showers.png',
-            'Heavy Snow':'heavy_snow.png',
-            'Heavy Hail':'heavy_hail.png',
-        }.get(condition, None)
+        'Sleet':'sleet.png',
+        'Light Snow':'light_snow.png',
+        'Light Snow Shower':'light_snow_showers.png',
+        'Light Snow Rain Showers':'light_snow_rain_showers.png',
+        'Heavy Snow':'heavy_snow.png',
+        'Heavy Hail':'heavy_hail.png',
+    }.get(condition, None)
 
 def night_img(condition):
     return {
-            'Clear Sky':'night_clear_sky.png',
+        'Clear Sky':'night_clear_sky.png',
 
-            'Partly Cloudy':'night_partly_cloudy.png',
-            'Light Cloud':'night_partly_cloudy.png',
-            'Thick Cloud':'night_thick_cloudy.png',
-            'Mist':'fog.png',
-            'Fog':'fog.png',
+        'Partly Cloudy':'night_partly_cloudy.png',
+        'Light Cloud':'night_partly_cloudy.png',
+        'Thick Cloud':'night_thick_cloudy.png',
+        'Mist':'fog.png',
+        'Fog':'fog.png',
 
-            'Heavy Thunder':'night_heavy_thunder.png',
-            'Drizzle':'night_light_showers.png',
-            'Light Rain':'night_light_showers.png',
-            'Light Rain Shower':'night_light_showers.png',
+        'Heavy Thunder':'night_heavy_thunder.png',
+        'Drizzle':'night_light_showers.png',
+        'Light Rain':'night_light_showers.png',
+        'Light Rain Shower':'night_light_showers.png',
 
-            'Heavy Rain':'night_heavy_showers.png',
-            'Heavy Rain Shower':'night_heavy_showers.png',
+        'Heavy Rain':'night_heavy_showers.png',
+        'Heavy Rain Shower':'night_heavy_showers.png',
 
-            'Sleet':'sleet.png',
-            'Light Snow':'night_light_snow.png',
-            'Light Snow Shower':'night_light_snow.png',
-            'Light Snow Rain Showers':'night_snow_rain_showers.png',
-            'Heavy Snow':'night_heavy_snow.png',
-            'Heavy Hail':'night_heavy_hail.png',
-        }.get(condition, None)
+        'Sleet':'sleet.png',
+        'Light Snow':'night_light_snow.png',
+        'Light Snow Shower':'night_light_snow.png',
+        'Light Snow Rain Showers':'night_snow_rain_showers.png',
+        'Heavy Snow':'night_heavy_snow.png',
+        'Heavy Hail':'night_heavy_hail.png',
+    }.get(condition, None)
 
 url = "http://www.bbc.co.uk/weather/en/2644037/"
 page = urllib.request.urlopen(url)
@@ -132,7 +133,6 @@ if len(weather_data_post) < 12:
     for i in hrs:
         if i < phplus:
             weather_data_post1[i] = weather_cond[i], weather_img[i], weather_temp[i], weather_humidity[i], weather_wind_speed[i], weather_wind_direction[i]
-
 
 #writes the json data to file
 with open('../jsonData/weather_data_post1.json', 'w') as outfile:
