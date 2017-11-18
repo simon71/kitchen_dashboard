@@ -156,9 +156,10 @@
 	 height: 		64px;
 	 font-family: 		inherit;
  }
- #countyTitle {
+ #countryTitle {
 	font-family: 		sans-serif;
 	font-size: 			20px;
+	padding-right: 		10%;
  }
  #windImg{
 	 font-weight: 		bolder;
