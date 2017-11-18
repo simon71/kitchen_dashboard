@@ -39,8 +39,15 @@
 							<th>Low</th>
 							<th>Wind</th>
 						</thead>
-						<tbody id="day">
-
+						<tbody id="UKday">
+						<thead>
+							<th>Day</th>
+							<th>Conditions</th>
+							<th>High</th>
+							<th>Low</th>
+							<th>Wind</th>
+						</thead>
+						<tbody id="LLday">
 						</tbody>
 					</table>
 				</div>
@@ -142,14 +149,26 @@ $.getJSON("./jsonData/sun_set.json", function(data){
 
 $.getJSON("./jsonData/wkforecast.json", function(data){
 	$.each(data, function(k, v){
-		$('#day').append('<tr>')
-		$('#day').append("<td>"+v[0]+"</td>");
-		$('#day').append("<td>"+"<img src='Images\\"+v[6]+"'>"+"</td>");
-		$('#day').append("<td>"+v[2]+"<sup>o</sup>C</td>");
-		$('#day').append("<td>"+v[3]+"<sup>o</sup>C</td>");
-		$('#day').append("<td id=\"windImg\"background='../Images/"+v[7]+"'>"+v[4]+"</td>");
+		$('#UKday').append('<tr>')
+		$('#UKday').append("<td>"+v[0]+"</td>");
+		$('#UKday').append("<td>"+"<img src='Images\\"+v[6]+"'>"+"</td>");
+		$('#UKday').append("<td>"+v[2]+"<sup>o</sup>C</td>");
+		$('#UKday').append("<td>"+v[3]+"<sup>o</sup>C</td>");
+		$('#UKday').append("<td id=\"windImg\"background='../Images/"+v[7]+"'>"+v[4]+"</td>");
 	});
-	$('#day').append("</tc>");
+	$('#UKday').append("</tc>");
+});
+
+$.getJSON("./jsonData/ll_wkforecast.json", function(data){
+	$.each(data, function(k, v){
+		$('#LLday').append('<tr>')
+		$('#LLday').append("<td>"+v[0]+"</td>");
+		$('#LLday').append("<td>"+"<img src='Images\\"+v[6]+"'>"+"</td>");
+		$('#LLday').append("<td>"+v[2]+"<sup>o</sup>C</td>");
+		$('#LLday').append("<td>"+v[3]+"<sup>o</sup>C</td>");
+		$('#LLday').append("<td id=\"windImg\"background='../Images/"+v[7]+"'>"+v[4]+"</td>");
+	});
+	$('#LLday').append("</tc>");
 });
 
 $.getJSON("./jsonData/weather_data_post1.json", function(data){
