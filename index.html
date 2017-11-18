@@ -31,7 +31,7 @@
 				<div id="lable">Sun Rise:</div><div id="today_sunSet" class="weather_text"></div>
 				<div id="lable">Sun Set:</div><div id="today_sunRise" class="weather_text"></div>
 				<div id="wkWeather">
-					<div id="countryTitle"><p>UK</p></div>
+					<div id="countryTitle"><p style=" font-size: 40px; font-family: inherit ; font-weight: bold ;">UK</p></div>
 					<table>
 						<thead>
 							<th>Day</th>
@@ -42,7 +42,7 @@
 						</thead>
 						<tbody id="UKday">
 					</table>
-					<div id="countryTitle"><p>Lapland</p></div>
+					<div id="countryTitle"><p style=" font-size: 40px; font-family: inherit ; font-weight: bold ;">Lapland</p></div>
 					<table>			
 							<thead>
 							<th>Day</th>
@@ -158,7 +158,7 @@ $.getJSON("./jsonData/wkforecast.json", function(data){
 		$('#UKday').append("<td>"+"<img src='Images\\"+v[6]+"'>"+"</td>");
 		$('#UKday').append("<td>"+v[2]+"<sup>o</sup>C</td>");
 		$('#UKday').append("<td>"+v[3]+"<sup>o</sup>C</td>");
-		$('#UKday').append("<td id=\"windImg\"background='../Images/"+v[7]+"'>"+v[4]+"</td>");
+		$('#UKday').append("<td>"+v[4]+v[5]+"</td>");
 	});
 	$('#UKday').append("</tc>");
 });
