@@ -1,42 +1,42 @@
 {
     "0": [
-        "Sat",
-        "Sunny",
-        "5",
-        "-2",
-        "2",
-        "WNW",
-        "sun.png",
-        "wind/NW.png"
+        "Tue",
+        "Light Rain",
+        "12",
+        "14",
+        "16",
+        "SW",
+        "light_rain.png",
+        "wind/SW.png"
     ],
     "1": [
-        "Sun",
-        "Light Rain Shower",
+        "Wed\n                    \n                    Weather warnings issued",
+        "Heavy Rain",
         "6",
-        "1",
-        "8",
+        "10",
+        "30",
         "SSW",
-        "light_rain_showers.png",
+        "heavy_rain.png",
         "wind/SW.png"
     ],
     "2": [
-        "Mon",
-        "Sunny",
-        "7",
-        "5",
-        "10",
-        "SSW",
-        "sun.png",
-        "wind/SW.png"
+        "Thu\n                    \n                    Weather warnings issued",
+        "Light Rain Shower",
+        "4",
+        "8",
+        "26",
+        "WSW",
+        "light_rain_showers.png",
+        null
     ],
     "3": [
-        "Tue",
+        "Fri",
         "Light Cloud",
+        "3",
+        "7",
         "9",
-        "5",
-        "18",
-        "SSW",
+        "WSW",
         "light_cloud.png",
-        "wind/SW.png"
+        null
     ]
 }
