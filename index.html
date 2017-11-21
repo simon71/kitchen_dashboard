@@ -175,13 +175,13 @@ $.getJSON("./jsonData/ll_wkforecast.json", function(data){
 	$('#LLday').append("</tc>");
 });
 
-$.getJSON("./jsonData/weather_data_post1.json", function(data){
+$.getJSON("./jsonData/weather_data_post.json", function(data){
 	$.each(data, function(key,val){
 		$('#weather_main').append("<td>"+key+"</br>"+"<img src='../Images/"+val[1]+"'>"+"</td>");
 	});
 });
 	
-$.getJSON("./jsonData/weather_data_post.json", function(data){
+$.getJSON("./jsonData/weather_data_post1.json", function(data){
 	$.each(data, function(key,val){
 		$('#weather_main').append("<td>"+key+"</br>"+"<img src='../Images/"+val[1]+"'>"+"</td>");
 	});
