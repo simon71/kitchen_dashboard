@@ -96,6 +96,5 @@ wks = [0,1,2,3]
 for i in wks:
     wkForecast[i] = day[i], condition[i], max_temp[i], min_temp[i], windSpeed[i], windDir[i], wImg[i], windImg[i]
 
-
 with open("./jsonData/ll_wkforecast.json", 'w') as outfile:
     json.dump(wkForecast, outfile, indent=4, sort_keys=True)
