@@ -151,7 +151,7 @@ $.getJSON("./jsonData/sun_set.json", function(data){
 	});
 });
 
-$.getJSON("./jsonData/uk_wkforecast.json", function(data){
+$.getJSON("./jsonData/wkforecast.json", function(data){
 	$.each(data, function(k, v){
 		$('#UKday').append('<tr>')
 		$('#UKday').append("<td>"+v[0]+"</td>");
