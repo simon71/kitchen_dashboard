@@ -13,7 +13,7 @@
 <Link rel="stylesheet" type="text/css" href="./style.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-<body onload="updateClock(); setInterval('updateClock()', 1000 )" style=" margin-top: auto;margin-bottom: auto;margin-left: auto;margin-right: auto;">
+<body onload="updateClock(); setInterval('updateClock()', 1000 )", "updateWeather(); setInterval('updateWeather()', 9000000 )" style=" margin-top: auto;margin-bottom: auto;margin-left: auto;margin-right: auto;">
 	<div id="body" class="body">
 		<div id="main" class="main">
 			<div id="time_date">
@@ -113,8 +113,9 @@ document.getElementById("date").firstChild.nodeValue = currentDateString;
 }
 				
 var d = new Date();
-$(document).ready(function() {
 
+function updateWeather() 
+{
 tday=new Array("Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,");
 
 $.getJSON("./jsonData/weather_data_post.json", function(data){
